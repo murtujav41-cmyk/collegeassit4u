@@ -135,10 +135,11 @@
 
   /* ──── HERO ──── */
   .hero {
-    min-height: calc(100vh - 102px);
+    min-height: 82vh;
     background: linear-gradient(135deg, var(--blue-dark) 0%, var(--blue) 55%, #2E5CE6 100%);
     display: flex;
-    align-items: stretch;
+    align-items: center;
+    justify-content: center;
     position: relative;
     overflow: hidden;
   }
@@ -165,12 +166,17 @@
     flex: 1;
     display: flex;
     align-items: center;
-    padding: 60px 5vw 60px 6vw;
+    justify-content: center;
+    padding: 60px 5vw;
     position: relative;
     z-index: 2;
-    max-width: 55%;
+    max-width: 100%;
+    text-align: center;
   }
-  .hero-text-inner { max-width: 580px; }
+  .hero-text-inner { max-width: 760px; }
+  .hero-badge { justify-content: center; }
+  .hero-ctas { justify-content: center; }
+  .hero-social-proof { justify-content: center; }
   .hero-badge {
     display: inline-flex; align-items: center; gap: 8px;
     background: rgba(255,255,255,0.12);
@@ -532,6 +538,10 @@
     background: linear-gradient(135deg, #1A3C8F 0%, #2E56B8 50%, #4B74D9 100%);
     display: flex; align-items: center; justify-content: center;
     font-size: 48px;
+    overflow: hidden;
+  }
+  .flip-img img {
+    width: 100%; height: 100%; object-fit: cover; display: block;
   }
   .flip-body { padding: 20px; }
   .naac-badge {
@@ -1133,7 +1143,7 @@
 <!-- ──── URGENCY BAR ──── -->
 <div class="urgency-bar">
   <span class="pulse-dot"></span>
-  🎓 Admissions 2025 Closing Soon — 
+  🎓 Admissions 2026 Closing Soon — 
   <a href="#lead-form">Get Free Guidance Now →</a>
 </div>
 
@@ -1188,103 +1198,6 @@
     </div>
   </div>
 
-  <!-- HERO FORM -->
-  <div class="hero-form-panel" id="hero-form">
-    <div class="form-card">
-      <div class="form-card-badge">🎁 FREE OFFER</div>
-      <h2 class="form-card-title">Get Your <span>Personalized</span><br>University Match Report</h2>
-      <p class="form-card-sub">Takes 60 seconds · Completely Free · No obligation</p>
-      <div class="scarcity-badge">🔥 Only 3 free counseling slots left today!</div>
-
-      <!-- Progress -->
-      <div class="progress-bar-wrap">
-        <div class="progress-steps">
-          <div class="progress-step active" id="ps1"><div class="step-dot">1</div> Contact</div>
-          <div class="progress-line"><div class="progress-line-fill" id="pl1" style="width:0%"></div></div>
-          <div class="progress-step" id="ps2"><div class="step-dot">2</div> Location</div>
-          <div class="progress-line"><div class="progress-line-fill" id="pl2" style="width:0%"></div></div>
-          <div class="progress-step" id="ps3"><div class="step-dot">3</div> Course</div>
-        </div>
-        <div class="progress-bar"><div class="progress-bar-fill" id="mainPBar" style="width:33%"></div></div>
-      </div>
-
-      <!-- Form Counter -->
-      <div class="form-counter">
-        <span class="blink">⏳</span>
-        <span id="counter-num">47</span> students requested this today
-      </div>
-
-      <!-- Step 1 -->
-      <div class="form-step active" id="step1">
-        <div class="form-group">
-          <label>Full Name *</label>
-          <input type="text" id="f-name" placeholder="e.g. Rahul Sharma" />
-        </div>
-        <div class="form-group">
-          <label>Phone Number *</label>
-          <input type="tel" id="f-phone" placeholder="+91 98765 43210" />
-        </div>
-        <button class="form-submit-btn" onclick="nextStep(1)">Continue — Step 2 of 3 →</button>
-      </div>
-
-      <!-- Step 2 -->
-      <div class="form-step" id="step2">
-        <div class="form-group">
-          <label>Email Address *</label>
-          <input type="email" id="f-email" placeholder="you@example.com" />
-        </div>
-        <div class="form-group">
-          <label>Current City *</label>
-          <input type="text" id="f-city" placeholder="e.g. Mumbai, Delhi, Hyderabad" />
-        </div>
-        <div class="form-nav">
-          <button class="form-prev-btn" onclick="prevStep(2)">← Back</button>
-          <button class="form-submit-btn" onclick="nextStep(2)">Continue — Step 3 of 3 →</button>
-        </div>
-      </div>
-
-      <!-- Step 3 -->
-      <div class="form-step" id="step3">
-        <div class="form-group">
-          <label>Course Interest *</label>
-          <select id="f-course">
-            <option value="" disabled selected>Select your course</option>
-            <option>B.Tech / Engineering</option>
-            <option>MBA / Management</option>
-            <option>BBA / Commerce</option>
-            <option>B.Sc / Science</option>
-            <option>B.Pharm / Pharmacy</option>
-            <option>Law / LLB</option>
-            <option>Design / Architecture</option>
-            <option>Other</option>
-          </select>
-        </div>
-        <div class="form-group">
-          <label>Preferred University</label>
-          <select id="f-uni">
-            <option value="" disabled selected>Any preference?</option>
-            <option>Swaminarayan University</option>
-            <option>Sandip University</option>
-            <option>Joy University</option>
-            <option>No Preference — Help me choose</option>
-          </select>
-        </div>
-        <div class="form-nav">
-          <button class="form-prev-btn" onclick="prevStep(3)">← Back</button>
-          <button class="form-submit-btn" onclick="submitForm()">🎓 Claim My Free Report Now →</button>
-        </div>
-      </div>
-
-      <!-- Success -->
-      <div class="form-success" id="formSuccess">
-        <div class="success-icon">🎉</div>
-        <h3 class="success-h3">You're All Set!</h3>
-        <p class="success-p">Our counselor will call you within <strong>2 hours</strong> with your personalized University Match Report. Check your WhatsApp too!</p>
-      </div>
-
-      <p class="form-trust">🔒 No spam. Your data is 100% secure. Used only for counseling.</p>
-    </div>
-  </div>
   <div class="hero-orb1"></div>
   <div class="hero-orb2"></div>
 </section>
@@ -1294,15 +1207,15 @@
   <div class="trust-inner">
     <div class="trust-unis">
       <span style="font-size:12px;font-weight:700;color:var(--text-muted);text-transform:uppercase;letter-spacing:0.06em;">Partner Universities:</span>
-      <a href="http://swaminarayanuniversity.ac.in" target="_blank" class="trust-uni-logo">
+      <a href="#universities" class="trust-uni-logo">
         <div class="uni-icon" style="background:linear-gradient(135deg,#1A3C8F,#2E56B8)">S</div>
         Swaminarayan University
       </a>
-      <a href="http://sandipuniversity.edu.in" target="_blank" class="trust-uni-logo">
+      <a href="#universities" class="trust-uni-logo">
         <div class="uni-icon" style="background:linear-gradient(135deg,#0F6B47,#16A06A)">S</div>
         Sandip University
       </a>
-      <a href="http://joyuniversity.edu.in" target="_blank" class="trust-uni-logo">
+      <a href="#universities" class="trust-uni-logo">
         <div class="uni-icon" style="background:linear-gradient(135deg,#8B2FC9,#A855F7)">J</div>
         Joy University
       </a>
@@ -1350,7 +1263,13 @@
       <div class="flip-card animate-up">
         <div class="flip-card-inner">
           <div class="flip-front">
-            <div class="flip-img">🕌</div>
+            <div class="flip-img" style="padding:0;overflow:hidden;background:#1A3C8F;">
+              <img src="https://www.swaminarayanuniversity.ac.in/assets/img/campus/campus1.jpg"
+                   alt="Swaminarayan University Campus"
+                   style="width:100%;height:100%;object-fit:cover;"
+                   onerror="this.src='https://image-static.collegedunia.com/public/reviewPhotos/1075750/IMG_20230411_004553_346.jpg'"
+              />
+            </div>
             <div class="flip-body">
               <div class="naac-badge">⭐ NAAC A+ Accredited</div>
               <div class="flip-uni-name">Swaminarayan University</div>
@@ -1365,16 +1284,16 @@
             </div>
           </div>
           <div class="flip-back">
-            <div class="flip-back-badge">NAAC A+ • Est. 2019</div>
+            <div class="flip-back-badge">NAAC A+ • Est. 2022</div>
             <div class="flip-back-name">Swaminarayan University</div>
             <ul class="flip-highlights">
-              <li>World-class modern campus with smart classrooms</li>
+              <li>100-acre lush green smart campus</li>
               <li>Industry-integrated curriculum & live projects</li>
               <li>100% placement assistance with top MNCs</li>
               <li>International exchange programs available</li>
             </ul>
-            <div class="flip-fees">Annual Fees: <strong>₹80,000 – ₹1.8L</strong></div>
-            <a href="http://swaminarayanuniversity.ac.in" target="_blank" class="flip-know-btn">Know More →</a>
+            <div class="flip-fees">Annual Fees: <strong>₹25,000 – ₹1.8L</strong></div>
+            <button class="flip-know-btn" onclick="scrollToForm('Swaminarayan University')">Apply Now — Free Counseling →</button>
           </div>
         </div>
       </div>
@@ -1383,7 +1302,13 @@
       <div class="flip-card animate-up" style="transition-delay:0.1s">
         <div class="flip-card-inner">
           <div class="flip-front">
-            <div class="flip-img" style="background:linear-gradient(135deg,#0F6B47,#22A06B,#4ADE80)">🌿</div>
+            <div class="flip-img" style="padding:0;overflow:hidden;background:#0F6B47;">
+              <img src="https://www.sandipuniversity.edu.in/images/nasik-campus.jpg"
+                   alt="Sandip University Campus"
+                   style="width:100%;height:100%;object-fit:cover;"
+                   onerror="this.src='https://www.sandipuniversity.edu.in/images/campus-life/campus1.jpg'"
+              />
+            </div>
             <div class="flip-body">
               <div class="naac-badge">⭐ NAAC A Accredited</div>
               <div class="flip-uni-name">Sandip University</div>
@@ -1400,13 +1325,13 @@
             <div class="flip-back-badge">NAAC A • Est. 2009</div>
             <div class="flip-back-name">Sandip University</div>
             <ul class="flip-highlights">
-              <li>Sprawling 100-acre eco-friendly campus</li>
-              <li>35+ specializations across schools</li>
+              <li>Sprawling 250-acre eco-friendly campus</li>
+              <li>35+ specializations across 7 schools</li>
               <li>Strong industry tie-ups & internship network</li>
               <li>Merit-based scholarships up to 100%</li>
             </ul>
             <div class="flip-fees">Annual Fees: <strong>₹70,000 – ₹2.2L</strong></div>
-            <a href="http://sandipuniversity.edu.in" target="_blank" class="flip-know-btn">Know More →</a>
+            <button class="flip-know-btn" onclick="scrollToForm('Sandip University')">Apply Now — Free Counseling →</button>
           </div>
         </div>
       </div>
@@ -1415,30 +1340,36 @@
       <div class="flip-card animate-up" style="transition-delay:0.2s">
         <div class="flip-card-inner">
           <div class="flip-front">
-            <div class="flip-img" style="background:linear-gradient(135deg,#5B21B6,#7C3AED,#A78BFA)">✨</div>
+            <div class="flip-img" style="padding:0;overflow:hidden;background:linear-gradient(135deg,#5B21B6,#7C3AED);position:relative;">
+              <img src="https://joyuniversity.edu.in/assets/images/about-banner.jpg"
+                   alt="Joy University Campus"
+                   style="width:100%;height:100%;object-fit:cover;position:relative;z-index:1;"
+                   onerror="this.style.display='none'"
+              />
+            </div>
             <div class="flip-body">
-              <div class="naac-badge">⭐ NAAC B+ Accredited</div>
+              <div class="naac-badge">⭐ NAAC Accredited</div>
               <div class="flip-uni-name">Joy University</div>
-              <div class="flip-location">📍 West Bengal</div>
+              <div class="flip-location">📍 Tirunelveli, Tamil Nadu</div>
               <div class="flip-courses">
                 <span class="course-tag">B.Tech</span>
                 <span class="course-tag">BBA</span>
-                <span class="course-tag">B.Ed</span>
-                <span class="course-tag">Agriculture</span>
+                <span class="course-tag">B.Sc Nursing</span>
+                <span class="course-tag">Law</span>
               </div>
             </div>
           </div>
           <div class="flip-back" style="background:linear-gradient(160deg,#3B0C8C,#5B21B6)">
-            <div class="flip-back-badge">NAAC B+ • Est. 2017</div>
+            <div class="flip-back-badge">NAAC Accredited • Est. 2022</div>
             <div class="flip-back-name">Joy University</div>
             <ul class="flip-highlights">
-              <li>Affordable quality education in East India</li>
+              <li>Modern campus with cutting-edge facilities</li>
               <li>Strong focus on research & innovation</li>
-              <li>Dedicated career development cell</li>
-              <li>Hostel & transport facilities available</li>
+              <li>Top recruiters: IBM, Infosys, Wipro, Capgemini</li>
+              <li>Hostel, transport & sports facilities</li>
             </ul>
-            <div class="flip-fees">Annual Fees: <strong>₹50,000 – ₹1.5L</strong></div>
-            <a href="http://joyuniversity.edu.in" target="_blank" class="flip-know-btn">Know More →</a>
+            <div class="flip-fees">Annual Fees: <strong>₹90,000 – ₹1.9L</strong></div>
+            <button class="flip-know-btn" onclick="scrollToForm('Joy University')">Apply Now — Free Counseling →</button>
           </div>
         </div>
       </div>
@@ -1459,7 +1390,7 @@
           </tr>
         </thead>
         <tbody>
-          <tr><td>Location</td><td>Kalol, Gujarat</td><td>Nashik, Maharashtra</td><td>West Bengal</td></tr>
+          <tr><td>Location</td><td>Kalol, Gujarat</td><td>Nashik, Maharashtra</td><td>Tirunelveli, Tamil Nadu</td></tr>
           <tr><td>NAAC Rating</td><td>A+</td><td>A</td><td>B+</td></tr>
           <tr><td>Annual Fees</td><td>₹80K–1.8L</td><td>₹70K–2.2L</td><td>₹50K–1.5L</td></tr>
           <tr><td>Placement Support</td><td class="check">✓ 100%</td><td class="check">✓ 100%</td><td class="check">✓ Yes</td></tr>
@@ -1498,58 +1429,56 @@
             <div class="progress-step active" id="lps1"><div class="step-dot">1</div> Contact</div>
             <div class="progress-line"><div class="progress-line-fill" id="lpl1" style="width:0%"></div></div>
             <div class="progress-step" id="lps2"><div class="step-dot">2</div> Location</div>
-            <div class="progress-line"><div class="progress-line-fill" id="lpl2" style="width:0%"></div></div>
-            <div class="progress-step" id="lps3"><div class="step-dot">3</div> Course</div>
           </div>
-          <div class="progress-bar"><div class="progress-bar-fill" id="leadPBar" style="width:33%"></div></div>
+          <div class="progress-bar"><div class="progress-bar-fill" id="leadPBar" style="width:50%"></div></div>
         </div>
 
         <div class="scarcity-badge">⏰ Only 3 free sessions left for today!</div>
 
         <!-- Step 1 -->
         <div class="form-step active" id="lstep1">
-          <div class="form-group"><label>Full Name *</label><input type="text" id="lf-name" placeholder="Your full name" /></div>
-          <div class="form-group"><label>Phone Number *</label><input type="tel" id="lf-phone" placeholder="+91 98765 43210" /></div>
-          <button class="form-submit-btn" onclick="leadNext(1)">Continue →</button>
+          <div class="form-group"><label>Full Name *</label><input type="text" id="lf-name" placeholder="Your full name" required /></div>
+          <div class="form-group"><label>Phone Number *</label><input type="tel" id="lf-phone" placeholder="+91 98765 43210" required /></div>
+          <div class="form-group">
+            <label>12th Completion Year *</label>
+            <select id="lf-year" required>
+              <option value="" disabled selected>Select year</option>
+              <option>2026</option>
+              <option>2025</option>
+              <option>2024</option>
+              <option>2023</option>
+              <option>2022</option>
+              <option>2021 or earlier</option>
+            </select>
+          </div>
+          <button class="form-submit-btn" onclick="leadNext(1)">Continue — Step 2 of 2 →</button>
         </div>
+
         <!-- Step 2 -->
         <div class="form-step" id="lstep2">
-          <div class="form-group"><label>Email Address *</label><input type="email" id="lf-email" placeholder="your@email.com" /></div>
-          <div class="form-group"><label>Current City *</label><input type="text" id="lf-city" placeholder="Your city" /></div>
+          <div class="form-group"><label>Current City *</label><input type="text" id="lf-city" placeholder="Your city" required /></div>
+          <div class="form-group">
+            <label>Current State *</label>
+            <select id="lf-state" required>
+              <option value="" disabled selected>Select your state</option>
+              <option>Andhra Pradesh</option><option>Arunachal Pradesh</option><option>Assam</option>
+              <option>Bihar</option><option>Chhattisgarh</option><option>Goa</option>
+              <option>Gujarat</option><option>Haryana</option><option>Himachal Pradesh</option>
+              <option>Jharkhand</option><option>Karnataka</option><option>Kerala</option>
+              <option>Madhya Pradesh</option><option>Maharashtra</option><option>Manipur</option>
+              <option>Meghalaya</option><option>Mizoram</option><option>Nagaland</option>
+              <option>Odisha</option><option>Punjab</option><option>Rajasthan</option>
+              <option>Sikkim</option><option>Tamil Nadu</option><option>Telangana</option>
+              <option>Tripura</option><option>Uttar Pradesh</option><option>Uttarakhand</option>
+              <option>West Bengal</option><option>Delhi</option><option>Other</option>
+            </select>
+          </div>
           <div class="form-nav">
             <button class="form-prev-btn" onclick="leadPrev(2)">← Back</button>
-            <button class="form-submit-btn" onclick="leadNext(2)">Continue →</button>
-          </div>
-        </div>
-        <!-- Step 3 -->
-        <div class="form-step" id="lstep3">
-          <div class="form-group"><label>Course Interest *</label>
-            <select id="lf-course">
-              <option value="" disabled selected>Select your course</option>
-              <option>B.Tech / Engineering</option>
-              <option>MBA / Management</option>
-              <option>BBA / Commerce</option>
-              <option>B.Sc / Science</option>
-              <option>B.Pharm / Pharmacy</option>
-              <option>Law / LLB</option>
-              <option>Design / Architecture</option>
-              <option>Other</option>
-            </select>
-          </div>
-          <div class="form-group"><label>Preferred University</label>
-            <select id="lf-uni">
-              <option value="" disabled selected>Any preference?</option>
-              <option>Swaminarayan University</option>
-              <option>Sandip University</option>
-              <option>Joy University</option>
-              <option>No Preference — Help me choose</option>
-            </select>
-          </div>
-          <div class="form-nav">
-            <button class="form-prev-btn" onclick="leadPrev(3)">← Back</button>
             <button class="form-submit-btn" onclick="leadSubmit()">🎓 Claim My Free Report →</button>
           </div>
         </div>
+
         <!-- Success -->
         <div class="form-success" id="leadSuccess">
           <div class="success-icon">🎉</div>
@@ -1666,9 +1595,9 @@
     <div class="footer-col">
       <h4>Universities</h4>
       <ul>
-        <li><a href="http://swaminarayanuniversity.ac.in" target="_blank">Swaminarayan University</a></li>
-        <li><a href="http://sandipuniversity.edu.in" target="_blank">Sandip University</a></li>
-        <li><a href="http://joyuniversity.edu.in" target="_blank">Joy University</a></li>
+        <li><a href="#universities">Swaminarayan University</a></li>
+        <li><a href="#universities">Sandip University</a></li>
+        <li><a href="#universities">Joy University</a></li>
       </ul>
     </div>
     <div class="footer-col">
@@ -1705,67 +1634,60 @@
 </div>
 
 <script>
-// ──── FORM LOGIC (Hero) ────
-let currentHeroStep = 1;
-function nextStep(step) {
-  document.getElementById('step' + step).classList.remove('active');
-  const next = step + 1;
-  document.getElementById('step' + next).classList.add('active');
-  currentHeroStep = next;
-  updateHeroProgress(next);
-}
-function prevStep(step) {
-  document.getElementById('step' + step).classList.remove('active');
-  const prev = step - 1;
-  document.getElementById('step' + prev).classList.add('active');
-  currentHeroStep = prev;
-  updateHeroProgress(prev);
-}
-function updateHeroProgress(step) {
-  const pct = step === 1 ? 33 : step === 2 ? 66 : 100;
-  document.getElementById('mainPBar').style.width = pct + '%';
-  [1,2,3].forEach(i => {
-    const el = document.getElementById('ps' + i);
-    el.classList.remove('active','done');
-    if (i === step) el.classList.add('active');
-    else if (i < step) el.classList.add('done');
-  });
-  if (step > 1) document.getElementById('pl1').style.width = '100%';
-  if (step > 2) document.getElementById('pl2').style.width = '100%';
-}
-function submitForm() {
-  ['step1','step2','step3'].forEach(id => document.getElementById(id).classList.remove('active'));
-  document.getElementById('formSuccess').style.display = 'block';
-  document.getElementById('mainPBar').style.width = '100%';
+// ──── SCROLL TO FORM (from Know More buttons) ────
+function scrollToForm(universityName) {
+  const form = document.getElementById('lead-form');
+  if (form) {
+    form.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    // Pre-select the university if a selector exists (future use)
+    if (universityName) {
+      const badge = form.querySelector('.form-card-badge');
+      if (badge) {
+        badge.textContent = '🎓 Applying for: ' + universityName;
+      }
+    }
+  }
 }
 
-// ──── FORM LOGIC (Lead) ────
+// ──── VALIDATION HELPER ────
+function validate(fields) {
+  for (const id of fields) {
+    const el = document.getElementById(id);
+    if (!el || !el.value.trim()) {
+      el.style.borderColor = '#FF4444';
+      el.focus();
+      el.addEventListener('input', () => el.style.borderColor = '', { once: true });
+      return false;
+    }
+  }
+  return true;
+}
+
 function leadNext(step) {
+  if (step === 1 && !validate(['lf-name','lf-phone','lf-year'])) return;
   document.getElementById('lstep' + step).classList.remove('active');
-  const next = step + 1;
-  document.getElementById('lstep' + next).classList.add('active');
-  updateLeadProgress(next);
+  document.getElementById('lstep' + (step + 1)).classList.add('active');
+  updateLeadProgress(step + 1);
 }
 function leadPrev(step) {
   document.getElementById('lstep' + step).classList.remove('active');
-  const prev = step - 1;
-  document.getElementById('lstep' + prev).classList.add('active');
-  updateLeadProgress(prev);
+  document.getElementById('lstep' + (step - 1)).classList.add('active');
+  updateLeadProgress(step - 1);
 }
 function updateLeadProgress(step) {
-  const pct = step === 1 ? 33 : step === 2 ? 66 : 100;
+  const pct = step === 1 ? 50 : 100;
   document.getElementById('leadPBar').style.width = pct + '%';
-  [1,2,3].forEach(i => {
+  [1,2].forEach(i => {
     const el = document.getElementById('lps' + i);
     el.classList.remove('active','done');
     if (i === step) el.classList.add('active');
     else if (i < step) el.classList.add('done');
   });
   if (step > 1) document.getElementById('lpl1').style.width = '100%';
-  if (step > 2) document.getElementById('lpl2').style.width = '100%';
 }
 function leadSubmit() {
-  ['lstep1','lstep2','lstep3'].forEach(id => document.getElementById(id).classList.remove('active'));
+  if (!validate(['lf-city','lf-state'])) return;
+  ['lstep1','lstep2'].forEach(id => document.getElementById(id).classList.remove('active'));
   document.getElementById('leadSuccess').style.display = 'block';
   document.getElementById('leadPBar').style.width = '100%';
 }
