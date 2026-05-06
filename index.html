@@ -1,0 +1,1586 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>College Assist For You — Find Your Perfect University</title>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800;900&family=Sora:wght@400;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --blue: #1A3C8F;
+    --blue-dark: #0F2560;
+    --blue-light: #2E56B8;
+    --orange: #FF6B2B;
+    --orange-light: #FF8C55;
+    --orange-dark: #E55A1C;
+    --bg: #FFFFFF;
+    --bg-soft: #F4F7FF;
+    --bg-card: #FFFFFF;
+    --text: #0D1B3E;
+    --text-muted: #5A6A8A;
+    --text-light: #8A9ABF;
+    --border: #E0E8FF;
+    --success: #22C55E;
+    --gold: #F5A623;
+    --radius-card: 20px;
+    --radius-btn: 10px;
+    --shadow-card: 0 8px 40px rgba(26,60,143,0.10);
+    --shadow-lg: 0 16px 60px rgba(26,60,143,0.16);
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    overflow-x: hidden;
+  }
+
+  /* ──── URGENCY BAR ──── */
+  .urgency-bar {
+    background: linear-gradient(90deg, var(--blue-dark) 0%, var(--blue) 50%, var(--blue-dark) 100%);
+    color: #fff;
+    text-align: center;
+    padding: 10px 16px;
+    font-size: 13.5px;
+    font-weight: 600;
+    letter-spacing: 0.01em;
+    position: sticky;
+    top: 0;
+    z-index: 9999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    animation: barPulse 3s ease-in-out infinite;
+  }
+  .urgency-bar .pulse-dot {
+    width: 8px; height: 8px;
+    background: #FF4444;
+    border-radius: 50%;
+    animation: pulseDot 1.4s ease-in-out infinite;
+    flex-shrink: 0;
+  }
+  .urgency-bar a {
+    color: var(--orange-light);
+    text-decoration: underline;
+    font-weight: 700;
+    white-space: nowrap;
+  }
+  @keyframes barPulse { 0%,100%{background-position:0%} 50%{background-position:100%} }
+  @keyframes pulseDot { 0%,100%{opacity:1;transform:scale(1)} 50%{opacity:0.4;transform:scale(1.4)} }
+
+  /* ──── NAVBAR ──── */
+  .navbar {
+    background: rgba(255,255,255,0.95);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border);
+    padding: 0 5vw;
+    height: 64px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: sticky;
+    top: 38px;
+    z-index: 999;
+  }
+  .logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    text-decoration: none;
+  }
+  .logo-icon {
+    width: 38px; height: 38px;
+    background: linear-gradient(135deg, var(--blue), var(--blue-light));
+    border-radius: 10px;
+    display: flex; align-items: center; justify-content: center;
+    color: #fff;
+    font-size: 18px;
+    font-weight: 800;
+    font-family: 'Sora', sans-serif;
+    box-shadow: 0 4px 14px rgba(26,60,143,0.3);
+  }
+  .logo-text {
+    font-family: 'Sora', sans-serif;
+    font-weight: 700;
+    font-size: 17px;
+    color: var(--blue);
+    line-height: 1.1;
+  }
+  .logo-text span { color: var(--orange); }
+  .nav-links { display: flex; align-items: center; gap: 28px; list-style: none; }
+  .nav-links a { text-decoration: none; color: var(--text-muted); font-size: 14px; font-weight: 500; transition: color 0.2s; }
+  .nav-links a:hover { color: var(--blue); }
+  .nav-cta {
+    background: linear-gradient(135deg, var(--orange), var(--orange-dark));
+    color: #fff;
+    border: none;
+    border-radius: var(--radius-btn);
+    padding: 10px 22px;
+    font-size: 14px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.25s;
+    text-decoration: none;
+    display: inline-flex; align-items: center; gap: 6px;
+    box-shadow: 0 4px 18px rgba(255,107,43,0.35);
+    animation: navCtaPulse 2.5s ease-in-out infinite;
+  }
+  .nav-cta:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(255,107,43,0.45); }
+  @keyframes navCtaPulse { 0%,100%{box-shadow:0 4px 18px rgba(255,107,43,0.35)} 50%{box-shadow:0 4px 28px rgba(255,107,43,0.6)} }
+
+  /* ──── HERO ──── */
+  .hero {
+    min-height: calc(100vh - 102px);
+    background: linear-gradient(135deg, var(--blue-dark) 0%, var(--blue) 55%, #2E5CE6 100%);
+    display: flex;
+    align-items: stretch;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute; inset: 0;
+    background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+  }
+  .hero-orb1 {
+    position: absolute; top: -100px; right: -100px;
+    width: 500px; height: 500px;
+    background: radial-gradient(circle, rgba(255,107,43,0.15) 0%, transparent 70%);
+    border-radius: 50%;
+    pointer-events: none;
+  }
+  .hero-orb2 {
+    position: absolute; bottom: -150px; left: -80px;
+    width: 400px; height: 400px;
+    background: radial-gradient(circle, rgba(46,86,184,0.4) 0%, transparent 70%);
+    border-radius: 50%;
+    pointer-events: none;
+  }
+  .hero-content {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    padding: 60px 5vw 60px 6vw;
+    position: relative;
+    z-index: 2;
+    max-width: 55%;
+  }
+  .hero-text-inner { max-width: 580px; }
+  .hero-badge {
+    display: inline-flex; align-items: center; gap: 8px;
+    background: rgba(255,255,255,0.12);
+    border: 1px solid rgba(255,255,255,0.2);
+    border-radius: 100px;
+    padding: 6px 16px;
+    color: #fff;
+    font-size: 13px; font-weight: 600;
+    margin-bottom: 24px;
+    backdrop-filter: blur(8px);
+  }
+  .hero-badge .dot { width: 7px; height: 7px; background: #4ADE80; border-radius: 50%; animation: pulseDot 1.2s infinite; }
+  .hero-h1 {
+    font-family: 'Sora', sans-serif;
+    font-size: clamp(34px, 4.5vw, 58px);
+    font-weight: 800;
+    color: #fff;
+    line-height: 1.12;
+    margin-bottom: 20px;
+    letter-spacing: -0.02em;
+  }
+  .hero-h1 .accent { color: var(--orange-light); }
+  .hero-sub {
+    font-size: clamp(15px, 1.6vw, 18px);
+    color: rgba(255,255,255,0.75);
+    line-height: 1.7;
+    margin-bottom: 36px;
+    font-weight: 400;
+  }
+  .hero-ctas { display: flex; align-items: center; gap: 14px; flex-wrap: wrap; margin-bottom: 40px; }
+  .btn-primary {
+    background: linear-gradient(135deg, var(--orange), #FF4E00);
+    color: #fff;
+    border: none;
+    border-radius: 10px;
+    padding: 15px 30px;
+    font-size: 15px; font-weight: 700;
+    cursor: pointer;
+    text-decoration: none;
+    display: inline-flex; align-items: center; gap: 8px;
+    box-shadow: 0 6px 24px rgba(255,107,43,0.5);
+    transition: all 0.25s;
+    animation: btnGlow 2.5s ease-in-out infinite;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+  }
+  .btn-primary:hover { transform: translateY(-3px); box-shadow: 0 10px 32px rgba(255,107,43,0.65); }
+  @keyframes btnGlow { 0%,100%{box-shadow:0 6px 24px rgba(255,107,43,0.5)} 50%{box-shadow:0 6px 36px rgba(255,107,43,0.75)} }
+  .btn-ghost {
+    background: rgba(255,255,255,0.1);
+    color: #fff;
+    border: 1.5px solid rgba(255,255,255,0.3);
+    border-radius: 10px;
+    padding: 14px 24px;
+    font-size: 15px; font-weight: 600;
+    cursor: pointer;
+    text-decoration: none;
+    display: inline-flex; align-items: center; gap: 8px;
+    transition: all 0.25s;
+    backdrop-filter: blur(8px);
+    font-family: 'Plus Jakarta Sans', sans-serif;
+  }
+  .btn-ghost:hover { background: rgba(255,255,255,0.2); transform: translateY(-2px); }
+  .hero-social-proof {
+    display: flex; align-items: center; gap: 20px; flex-wrap: wrap;
+  }
+  .hero-stat { text-align: left; }
+  .hero-stat .num { font-family: 'Sora', sans-serif; font-size: 24px; font-weight: 800; color: #fff; }
+  .hero-stat .lbl { font-size: 12px; color: rgba(255,255,255,0.55); font-weight: 500; }
+  .hero-stat-divider { width: 1px; height: 36px; background: rgba(255,255,255,0.15); }
+  .hero-form-panel {
+    flex: 0 0 45%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 48px 5vw 48px 2vw;
+    position: relative;
+    z-index: 2;
+  }
+
+  /* ──── FORM CARD ──── */
+  .form-card {
+    background: #fff;
+    border-radius: 24px;
+    padding: 36px 32px;
+    width: 100%;
+    max-width: 420px;
+    box-shadow: 0 24px 80px rgba(0,0,0,0.22);
+    position: relative;
+    overflow: hidden;
+  }
+  .form-card::before {
+    content: '';
+    position: absolute; top: 0; left: 0; right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, var(--blue), var(--orange));
+  }
+  .form-card-badge {
+    display: inline-flex; align-items: center; gap: 6px;
+    background: #FFF3EC;
+    border: 1px solid #FFD4BC;
+    border-radius: 100px;
+    padding: 4px 12px;
+    color: var(--orange);
+    font-size: 12px; font-weight: 700;
+    margin-bottom: 14px;
+  }
+  .form-card-title {
+    font-family: 'Sora', sans-serif;
+    font-size: 21px;
+    font-weight: 800;
+    color: var(--text);
+    line-height: 1.25;
+    margin-bottom: 6px;
+  }
+  .form-card-title span { color: var(--blue); }
+  .form-card-sub {
+    font-size: 13px;
+    color: var(--text-muted);
+    margin-bottom: 20px;
+    line-height: 1.5;
+  }
+
+  /* Progress Bar */
+  .progress-bar-wrap {
+    margin-bottom: 22px;
+  }
+  .progress-steps {
+    display: flex; align-items: center; justify-content: space-between; margin-bottom: 8px;
+  }
+  .progress-step {
+    display: flex; align-items: center; gap: 6px;
+    font-size: 12px; font-weight: 600;
+    color: var(--text-light);
+    transition: color 0.3s;
+  }
+  .progress-step.active { color: var(--blue); }
+  .progress-step.done { color: var(--success); }
+  .step-dot {
+    width: 22px; height: 22px;
+    border-radius: 50%;
+    background: var(--border);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 10px; font-weight: 700;
+    color: var(--text-light);
+    transition: all 0.3s;
+    flex-shrink: 0;
+  }
+  .progress-step.active .step-dot { background: var(--blue); color: #fff; }
+  .progress-step.done .step-dot { background: var(--success); color: #fff; }
+  .progress-line {
+    flex: 1; height: 2px; background: var(--border); margin: 0 4px;
+    border-radius: 2px; overflow: hidden;
+  }
+  .progress-line-fill { height: 100%; background: var(--blue); border-radius: 2px; transition: width 0.4s ease; }
+  .progress-bar {
+    height: 6px; background: var(--border); border-radius: 3px; overflow: hidden;
+  }
+  .progress-bar-fill {
+    height: 100%;
+    background: linear-gradient(90deg, var(--blue), var(--orange));
+    border-radius: 3px;
+    transition: width 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  /* Form Steps */
+  .form-step { display: none; }
+  .form-step.active { display: block; animation: fadeIn 0.3s ease; }
+  @keyframes fadeIn { from{opacity:0;transform:translateX(10px)} to{opacity:1;transform:translateX(0)} }
+
+  .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+  .form-group { margin-bottom: 14px; }
+  .form-group label { display: block; font-size: 12px; font-weight: 600; color: var(--text); margin-bottom: 6px; }
+  .form-group input, .form-group select {
+    width: 100%;
+    padding: 11px 14px;
+    border: 1.5px solid var(--border);
+    border-radius: 10px;
+    font-size: 14px;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    color: var(--text);
+    background: #fff;
+    outline: none;
+    transition: border-color 0.2s, box-shadow 0.2s;
+    -webkit-appearance: none;
+  }
+  .form-group input:focus, .form-group select:focus {
+    border-color: var(--blue);
+    box-shadow: 0 0 0 3px rgba(26,60,143,0.08);
+  }
+  .form-group input::placeholder { color: var(--text-light); }
+  .form-group select { cursor: pointer; }
+
+  .form-submit-btn {
+    width: 100%;
+    background: linear-gradient(135deg, var(--orange), #FF4E00);
+    color: #fff;
+    border: none;
+    border-radius: 10px;
+    padding: 14px;
+    font-size: 15px; font-weight: 700;
+    cursor: pointer;
+    display: flex; align-items: center; justify-content: center; gap: 8px;
+    box-shadow: 0 6px 20px rgba(255,107,43,0.4);
+    transition: all 0.25s;
+    margin-bottom: 12px;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    animation: btnGlow 2.5s ease-in-out infinite;
+  }
+  .form-submit-btn:hover { transform: translateY(-2px); box-shadow: 0 10px 28px rgba(255,107,43,0.55); }
+  .form-prev-btn {
+    background: none; border: 1.5px solid var(--border); color: var(--text-muted);
+    border-radius: 10px; padding: 11px 20px; font-size: 14px; font-weight: 600;
+    cursor: pointer; transition: all 0.2s; font-family: 'Plus Jakarta Sans', sans-serif;
+  }
+  .form-prev-btn:hover { border-color: var(--blue); color: var(--blue); }
+  .form-nav { display: flex; gap: 10px; }
+  .form-nav .form-submit-btn { flex: 1; margin-bottom: 0; }
+
+  .form-trust {
+    text-align: center;
+    font-size: 12px;
+    color: var(--text-muted);
+    margin-top: 10px;
+  }
+  .form-counter {
+    display: flex; align-items: center; justify-content: center; gap: 6px;
+    background: #F0F4FF;
+    border-radius: 8px;
+    padding: 8px 12px;
+    font-size: 12px; font-weight: 600; color: var(--blue);
+    margin-bottom: 14px;
+  }
+  .form-counter .blink { animation: blink 1.5s ease-in-out infinite; }
+  @keyframes blink { 0%,100%{opacity:1} 50%{opacity:0.4} }
+
+  /* ──── TRUST BAR ──── */
+  .trust-bar {
+    background: var(--bg);
+    border-bottom: 1px solid var(--border);
+    padding: 24px 5vw;
+  }
+  .trust-inner {
+    max-width: 1180px; margin: 0 auto;
+    display: flex; align-items: center; justify-content: space-between;
+    flex-wrap: wrap; gap: 20px;
+  }
+  .trust-unis {
+    display: flex; align-items: center; gap: 28px; flex-wrap: wrap;
+  }
+  .trust-uni-logo {
+    display: flex; align-items: center; gap: 8px;
+    padding: 8px 16px;
+    background: var(--bg-soft);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    font-size: 13px; font-weight: 700;
+    color: var(--blue);
+    text-decoration: none;
+    transition: all 0.2s;
+  }
+  .trust-uni-logo:hover { border-color: var(--blue); box-shadow: 0 4px 16px rgba(26,60,143,0.1); transform: translateY(-2px); }
+  .trust-uni-logo .uni-icon {
+    width: 28px; height: 28px;
+    border-radius: 6px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 13px;
+    font-weight: 800;
+    color: #fff;
+    flex-shrink: 0;
+  }
+  .trust-stats {
+    display: flex; align-items: center; gap: 24px; flex-wrap: wrap;
+  }
+  .trust-stat {
+    display: flex; align-items: center; gap: 8px;
+  }
+  .trust-stat-icon { font-size: 18px; }
+  .trust-stat-num { font-family: 'Sora', sans-serif; font-size: 20px; font-weight: 800; color: var(--blue); }
+  .trust-stat-lbl { font-size: 12px; color: var(--text-muted); font-weight: 500; }
+  .trust-divider { width: 1px; height: 32px; background: var(--border); }
+
+  /* ──── SECTION COMMONS ──── */
+  section { padding: 80px 5vw; }
+  .section-inner { max-width: 1180px; margin: 0 auto; }
+  .section-tag {
+    display: inline-flex; align-items: center; gap: 6px;
+    background: var(--bg-soft);
+    border: 1px solid var(--border);
+    border-radius: 100px;
+    padding: 5px 14px;
+    font-size: 12px; font-weight: 700;
+    color: var(--blue);
+    text-transform: uppercase; letter-spacing: 0.06em;
+    margin-bottom: 14px;
+  }
+  .section-h2 {
+    font-family: 'Sora', sans-serif;
+    font-size: clamp(26px, 3.5vw, 40px);
+    font-weight: 800;
+    color: var(--text);
+    line-height: 1.18;
+    margin-bottom: 14px;
+    letter-spacing: -0.02em;
+  }
+  .section-h2 .accent { color: var(--blue); }
+  .section-h2 .accent-o { color: var(--orange); }
+  .section-sub {
+    font-size: 16px;
+    color: var(--text-muted);
+    line-height: 1.65;
+    max-width: 600px;
+  }
+  .section-header { margin-bottom: 48px; text-align: center; }
+  .section-header .section-sub { margin: 0 auto; }
+
+  /* ──── UNIVERSITY CARDS ──── */
+  .uni-section { background: var(--bg-soft); }
+  .cards-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+    margin-bottom: 32px;
+  }
+  .flip-card {
+    perspective: 1200px;
+    height: 380px;
+  }
+  .flip-card-inner {
+    position: relative;
+    width: 100%; height: 100%;
+    transition: transform 0.7s cubic-bezier(0.4, 0, 0.2, 1);
+    transform-style: preserve-3d;
+  }
+  .flip-card:hover .flip-card-inner { transform: rotateY(180deg); }
+  .flip-front, .flip-back {
+    position: absolute;
+    width: 100%; height: 100%;
+    border-radius: var(--radius-card);
+    backface-visibility: hidden;
+    overflow: hidden;
+  }
+  .flip-front {
+    background: #fff;
+    box-shadow: var(--shadow-card);
+    border: 1px solid var(--border);
+  }
+  .flip-back {
+    background: linear-gradient(160deg, var(--blue-dark), var(--blue));
+    color: #fff;
+    transform: rotateY(180deg);
+    display: flex; flex-direction: column;
+    padding: 28px 24px;
+    box-shadow: var(--shadow-lg);
+  }
+  .flip-img {
+    width: 100%;
+    height: 170px;
+    object-fit: cover;
+    background: linear-gradient(135deg, #1A3C8F 0%, #2E56B8 50%, #4B74D9 100%);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 48px;
+  }
+  .flip-body { padding: 20px; }
+  .naac-badge {
+    display: inline-flex; align-items: center; gap: 4px;
+    background: #FFF8E0;
+    border: 1px solid #F5D96B;
+    border-radius: 6px;
+    padding: 3px 9px;
+    font-size: 11px; font-weight: 700;
+    color: #8B6400;
+    margin-bottom: 10px;
+  }
+  .flip-uni-name { font-family: 'Sora', sans-serif; font-size: 17px; font-weight: 800; color: var(--text); margin-bottom: 4px; }
+  .flip-location { font-size: 13px; color: var(--text-muted); margin-bottom: 12px; display: flex; align-items: center; gap: 4px; }
+  .flip-courses { display: flex; flex-wrap: wrap; gap: 6px; }
+  .course-tag {
+    background: var(--bg-soft);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    padding: 3px 10px;
+    font-size: 11px; font-weight: 600;
+    color: var(--blue);
+  }
+  /* Back */
+  .flip-back-badge { font-size: 12px; color: rgba(255,255,255,0.6); margin-bottom: 6px; font-weight: 600; }
+  .flip-back-name { font-family: 'Sora', sans-serif; font-size: 20px; font-weight: 800; margin-bottom: 16px; }
+  .flip-highlights { list-style: none; flex: 1; }
+  .flip-highlights li { font-size: 13px; color: rgba(255,255,255,0.85); padding: 6px 0; border-bottom: 1px solid rgba(255,255,255,0.1); display: flex; align-items: center; gap: 8px; }
+  .flip-highlights li::before { content: '✓'; color: #4ADE80; font-weight: 700; flex-shrink: 0; }
+  .flip-fees { font-size: 13px; color: rgba(255,255,255,0.65); margin: 12px 0; }
+  .flip-fees strong { color: #fff; font-size: 15px; }
+  .flip-know-btn {
+    display: flex; align-items: center; justify-content: center; gap: 6px;
+    background: var(--orange);
+    color: #fff; border: none;
+    border-radius: 10px; padding: 12px;
+    font-size: 14px; font-weight: 700;
+    text-decoration: none;
+    transition: all 0.2s;
+    cursor: pointer;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+  }
+  .flip-know-btn:hover { background: var(--orange-light); transform: translateY(-2px); }
+
+  /* Compare Toggle */
+  .compare-toggle {
+    text-align: center;
+    margin-top: 8px;
+  }
+  .compare-btn {
+    background: #fff;
+    border: 2px solid var(--blue);
+    color: var(--blue);
+    border-radius: 10px;
+    padding: 12px 28px;
+    font-size: 14px; font-weight: 700;
+    cursor: pointer;
+    transition: all 0.25s;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    display: inline-flex; align-items: center; gap: 8px;
+  }
+  .compare-btn:hover { background: var(--blue); color: #fff; }
+  .compare-table-wrap {
+    display: none;
+    margin-top: 32px;
+    overflow-x: auto;
+    border-radius: 16px;
+    border: 1px solid var(--border);
+    box-shadow: var(--shadow-card);
+  }
+  .compare-table-wrap.show { display: block; animation: fadeIn 0.4s ease; }
+  .compare-table {
+    width: 100%;
+    border-collapse: collapse;
+    background: #fff;
+  }
+  .compare-table th {
+    background: var(--blue);
+    color: #fff;
+    padding: 14px 20px;
+    font-size: 14px; font-weight: 700;
+    text-align: left;
+  }
+  .compare-table th:first-child { background: var(--blue-dark); }
+  .compare-table td {
+    padding: 12px 20px;
+    font-size: 13px;
+    border-bottom: 1px solid var(--border);
+    color: var(--text);
+  }
+  .compare-table tr:last-child td { border-bottom: none; }
+  .compare-table tr:nth-child(even) td { background: var(--bg-soft); }
+  .compare-table td:first-child { font-weight: 700; color: var(--text-muted); }
+  .check { color: var(--success); font-weight: 700; }
+
+  /* ──── LEAD FORM FULL SECTION ──── */
+  .lead-section {
+    background: linear-gradient(160deg, var(--blue-dark) 0%, var(--blue) 100%);
+    position: relative;
+    overflow: hidden;
+  }
+  .lead-section::before {
+    content: '';
+    position: absolute; inset: 0;
+    background: url("data:image/svg+xml,%3Csvg width='80' height='80' viewBox='0 0 80 80' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23ffffff' fill-opacity='0.03'%3E%3Ccircle cx='40' cy='40' r='20'/%3E%3C/g%3E%3C/svg%3E");
+  }
+  .lead-inner {
+    max-width: 1100px; margin: 0 auto;
+    display: grid; grid-template-columns: 1fr 1.1fr;
+    align-items: center; gap: 60px;
+    position: relative; z-index: 2;
+  }
+  .lead-text { color: #fff; }
+  .lead-text .section-tag { background: rgba(255,255,255,0.12); border-color: rgba(255,255,255,0.2); color: #fff; }
+  .lead-text .section-h2 { color: #fff; }
+  .lead-text .section-h2 .accent { color: var(--orange-light); }
+  .lead-text .section-sub { color: rgba(255,255,255,0.7); }
+  .lead-perks { list-style: none; margin-top: 28px; }
+  .lead-perks li { display: flex; align-items: center; gap: 10px; font-size: 14px; color: rgba(255,255,255,0.85); padding: 6px 0; }
+  .lead-perks li .perk-icon { width: 26px; height: 26px; background: rgba(255,255,255,0.12); border-radius: 6px; display: flex; align-items: center; justify-content: center; font-size: 14px; flex-shrink: 0; }
+  .lead-form-wrap { display: flex; justify-content: center; }
+  .lead-form-card {
+    background: #fff;
+    border-radius: 24px;
+    padding: 36px 32px;
+    width: 100%;
+    max-width: 440px;
+    box-shadow: 0 32px 80px rgba(0,0,0,0.25);
+    position: relative; overflow: hidden;
+  }
+  .lead-form-card::before { content:''; position:absolute; top:0;left:0;right:0; height:4px; background:linear-gradient(90deg,var(--blue),var(--orange)); }
+
+  /* ──── HOW IT WORKS ──── */
+  .how-section { background: var(--bg); }
+  .steps-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px; }
+  .step-card {
+    text-align: center;
+    padding: 36px 24px;
+    background: var(--bg-soft);
+    border-radius: var(--radius-card);
+    border: 1px solid var(--border);
+    position: relative;
+    transition: all 0.3s;
+  }
+  .step-card:hover { transform: translateY(-6px); box-shadow: var(--shadow-lg); border-color: transparent; }
+  .step-num {
+    position: absolute; top: 16px; right: 20px;
+    font-family: 'Sora', sans-serif;
+    font-size: 60px; font-weight: 900;
+    color: var(--border);
+    line-height: 1;
+    pointer-events: none;
+  }
+  .step-icon-wrap {
+    width: 72px; height: 72px;
+    border-radius: 20px;
+    margin: 0 auto 20px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 32px;
+  }
+  .step-icon-wrap.blue { background: linear-gradient(135deg, var(--blue), var(--blue-light)); }
+  .step-icon-wrap.orange { background: linear-gradient(135deg, var(--orange), var(--orange-light)); }
+  .step-icon-wrap.green { background: linear-gradient(135deg, #22C55E, #16A34A); }
+  .step-h3 { font-family: 'Sora', sans-serif; font-size: 19px; font-weight: 800; color: var(--text); margin-bottom: 10px; }
+  .step-p { font-size: 14px; color: var(--text-muted); line-height: 1.65; }
+  .step-arrow {
+    display: none;
+  }
+
+  /* ──── TESTIMONIALS ──── */
+  .testi-section { background: var(--bg-soft); }
+  .testi-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+  .testi-card {
+    background: #fff;
+    border-radius: var(--radius-card);
+    padding: 28px;
+    border: 1px solid var(--border);
+    box-shadow: var(--shadow-card);
+    transition: all 0.3s;
+    position: relative;
+  }
+  .testi-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-lg); }
+  .testi-card::before { content: '"'; font-size: 80px; color: var(--bg-soft); font-family: Georgia, serif; position: absolute; top: 8px; left: 20px; line-height: 1; pointer-events: none; }
+  .stars { color: var(--gold); font-size: 14px; margin-bottom: 12px; }
+  .testi-text { font-size: 14px; color: var(--text); line-height: 1.7; margin-bottom: 20px; position: relative; z-index: 1; }
+  .testi-author { display: flex; align-items: center; gap: 12px; }
+  .testi-avatar {
+    width: 44px; height: 44px;
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 18px;
+    font-weight: 800;
+    color: #fff;
+    flex-shrink: 0;
+  }
+  .testi-name { font-size: 14px; font-weight: 700; color: var(--text); }
+  .testi-meta { font-size: 12px; color: var(--text-muted); }
+  .video-thumb {
+    position: relative;
+    border-radius: 16px;
+    overflow: hidden;
+    cursor: pointer;
+    margin-top: 28px;
+    box-shadow: var(--shadow-card);
+    transition: all 0.3s;
+    background: linear-gradient(135deg, var(--blue-dark), var(--blue-light));
+    height: 180px;
+    display: flex; align-items: center; justify-content: center;
+  }
+  .video-thumb:hover { transform: scale(1.02); }
+  .play-btn {
+    width: 64px; height: 64px;
+    background: rgba(255,255,255,0.95);
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    box-shadow: 0 8px 32px rgba(0,0,0,0.3);
+    transition: transform 0.2s;
+    z-index: 2; position: relative;
+  }
+  .play-btn:hover { transform: scale(1.1); }
+  .play-btn::after { content: '▶'; color: var(--blue); font-size: 24px; margin-left: 4px; }
+  .video-overlay { position: absolute; inset: 0; background: rgba(26,60,143,0.4); display: flex; flex-direction: column; align-items: center; justify-content: center; }
+  .video-label { color: #fff; font-size: 14px; font-weight: 600; margin-top: 12px; }
+
+  /* ──── STICKY BOTTOM CTA ──── */
+  .sticky-cta {
+    display: none;
+    position: fixed;
+    bottom: 0; left: 0; right: 0;
+    background: var(--blue-dark);
+    padding: 12px 16px;
+    z-index: 8888;
+    border-top: 2px solid var(--orange);
+    justify-content: center; align-items: center; gap: 12px;
+    flex-wrap: wrap;
+  }
+  .sticky-cta-text { color: #fff; font-size: 14px; font-weight: 600; }
+  .sticky-cta-btn {
+    background: linear-gradient(135deg, var(--orange), var(--orange-dark));
+    color: #fff; border: none;
+    border-radius: 8px;
+    padding: 10px 20px;
+    font-size: 14px; font-weight: 700;
+    cursor: pointer;
+    text-decoration: none;
+    display: inline-flex; align-items: center; gap: 6px;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+  }
+  .sticky-cta-btn.wa { background: #25D366; }
+
+  /* ──── FOOTER ──── */
+  .footer {
+    background: var(--blue-dark);
+    color: #fff;
+    padding: 56px 5vw 24px;
+  }
+  .footer-grid {
+    max-width: 1180px; margin: 0 auto;
+    display: grid; grid-template-columns: 2fr 1fr 1fr 1fr;
+    gap: 48px;
+    margin-bottom: 40px;
+  }
+  .footer-brand .logo-text { font-size: 20px; color: #fff; }
+  .footer-brand .logo-text span { color: var(--orange-light); }
+  .footer-tagline { font-size: 13px; color: rgba(255,255,255,0.5); margin: 10px 0 20px; line-height: 1.6; }
+  .footer-socials { display: flex; gap: 10px; }
+  .social-btn {
+    width: 36px; height: 36px;
+    background: rgba(255,255,255,0.08);
+    border-radius: 8px;
+    display: flex; align-items: center; justify-content: center;
+    color: rgba(255,255,255,0.6);
+    text-decoration: none;
+    font-size: 14px;
+    transition: all 0.2s;
+  }
+  .social-btn:hover { background: var(--orange); color: #fff; }
+  .footer-col h4 { font-size: 13px; font-weight: 700; color: rgba(255,255,255,0.4); text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 16px; }
+  .footer-col ul { list-style: none; }
+  .footer-col ul li { margin-bottom: 10px; }
+  .footer-col ul li a { text-decoration: none; font-size: 14px; color: rgba(255,255,255,0.65); transition: color 0.2s; }
+  .footer-col ul li a:hover { color: #fff; }
+  .footer-bottom {
+    max-width: 1180px; margin: 0 auto;
+    border-top: 1px solid rgba(255,255,255,0.08);
+    padding-top: 20px;
+    display: flex; align-items: center; justify-content: space-between;
+    flex-wrap: wrap; gap: 10px;
+  }
+  .footer-bottom p { font-size: 13px; color: rgba(255,255,255,0.4); }
+  .footer-bottom a { color: rgba(255,255,255,0.5); text-decoration: none; }
+  .footer-bottom a:hover { color: #fff; }
+
+  /* ──── ANIMATIONS ──── */
+  .animate-up { opacity: 0; transform: translateY(30px); transition: opacity 0.6s ease, transform 0.6s ease; }
+  .animate-up.visible { opacity: 1; transform: translateY(0); }
+
+  /* ──── SCARCITY BADGE ──── */
+  .scarcity-badge {
+    display: inline-flex; align-items: center; gap: 6px;
+    background: #FFF0F0;
+    border: 1px solid #FFB3B3;
+    border-radius: 8px;
+    padding: 6px 12px;
+    font-size: 12px; font-weight: 700;
+    color: #CC0000;
+    margin-bottom: 14px;
+    animation: scarcityPulse 2s ease-in-out infinite;
+  }
+  @keyframes scarcityPulse { 0%,100%{opacity:1} 50%{opacity:0.7} }
+
+  /* ──── SUCCESS ──── */
+  .form-success {
+    display: none;
+    text-align: center;
+    padding: 20px 0;
+    animation: fadeIn 0.4s ease;
+  }
+  .success-icon { font-size: 52px; margin-bottom: 12px; }
+  .success-h3 { font-family: 'Sora', sans-serif; font-size: 20px; font-weight: 800; color: var(--text); margin-bottom: 8px; }
+  .success-p { font-size: 14px; color: var(--text-muted); line-height: 1.6; }
+
+  /* ──── RESPONSIVE ──── */
+  @media (max-width: 1024px) {
+    .cards-grid { grid-template-columns: repeat(2, 1fr); }
+    .footer-grid { grid-template-columns: 1fr 1fr; }
+    .hero-content { max-width: 100%; }
+    .hero { flex-direction: column; min-height: auto; }
+    .hero-form-panel { flex: none; width: 100%; padding: 0 5vw 60px; }
+    .lead-inner { grid-template-columns: 1fr; }
+  }
+  @media (max-width: 768px) {
+    .nav-links { display: none; }
+    .hero { flex-direction: column; }
+    .hero-content { max-width: 100%; padding: 40px 5vw 20px; }
+    .hero-form-panel { padding: 0 5vw 40px; }
+    .form-card { max-width: 100%; }
+    .cards-grid { grid-template-columns: 1fr; }
+    .steps-grid { grid-template-columns: 1fr; }
+    .testi-grid { grid-template-columns: 1fr; }
+    .footer-grid { grid-template-columns: 1fr 1fr; gap: 28px; }
+    .trust-inner { flex-direction: column; align-items: flex-start; }
+    .sticky-cta { display: flex; }
+    body { padding-bottom: 64px; }
+    .form-row { grid-template-columns: 1fr; }
+    section { padding: 56px 5vw; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ──── URGENCY BAR ──── -->
+<div class="urgency-bar">
+  <span class="pulse-dot"></span>
+  🎓 Admissions 2025 Closing Soon — 
+  <a href="#lead-form">Get Free Guidance Now →</a>
+</div>
+
+<!-- ──── NAVBAR ──── -->
+<nav class="navbar">
+  <a href="#" class="logo">
+    <div class="logo-icon">C</div>
+    <div class="logo-text">College Assist <span>For You</span></div>
+  </a>
+  <ul class="nav-links">
+    <li><a href="#universities">Universities</a></li>
+    <li><a href="#how-it-works">How It Works</a></li>
+    <li><a href="#testimonials">Reviews</a></li>
+  </ul>
+  <a href="#lead-form" class="nav-cta">Get Free Counseling →</a>
+</nav>
+
+<!-- ──── HERO ──── -->
+<section class="hero" id="home">
+  <div class="hero-content">
+    <div class="hero-text-inner">
+      <div class="hero-badge">
+        <span class="dot"></span>
+        Trusted by 10,000+ Students Across India
+      </div>
+      <h1 class="hero-h1">
+        Find Your <span class="accent">Perfect University</span> —<br>Get Admitted Faster
+      </h1>
+      <p class="hero-sub">
+        Compare top universities, get expert counseling, and secure your seat today. Your future starts with the right choice — we make it easy.
+      </p>
+      <div class="hero-ctas">
+        <a href="#lead-form" class="btn-primary">Get Free Counseling →</a>
+        <a href="#universities" class="btn-ghost">🏛 Explore Universities</a>
+      </div>
+      <div class="hero-social-proof">
+        <div class="hero-stat">
+          <div class="num" data-count="10000">0</div>
+          <div class="lbl">Students Guided</div>
+        </div>
+        <div class="hero-stat-divider"></div>
+        <div class="hero-stat">
+          <div class="num" data-count="3">0</div>
+          <div class="lbl">Partner Universities</div>
+        </div>
+        <div class="hero-stat-divider"></div>
+        <div class="hero-stat">
+          <div class="num" data-count="95">0</div>
+          <div class="lbl">% Admission Success</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- HERO FORM -->
+  <div class="hero-form-panel" id="hero-form">
+    <div class="form-card">
+      <div class="form-card-badge">🎁 FREE OFFER</div>
+      <h2 class="form-card-title">Get Your <span>Personalized</span><br>University Match Report</h2>
+      <p class="form-card-sub">Takes 60 seconds · Completely Free · No obligation</p>
+      <div class="scarcity-badge">🔥 Only 3 free counseling slots left today!</div>
+
+      <!-- Progress -->
+      <div class="progress-bar-wrap">
+        <div class="progress-steps">
+          <div class="progress-step active" id="ps1"><div class="step-dot">1</div> Contact</div>
+          <div class="progress-line"><div class="progress-line-fill" id="pl1" style="width:0%"></div></div>
+          <div class="progress-step" id="ps2"><div class="step-dot">2</div> Location</div>
+          <div class="progress-line"><div class="progress-line-fill" id="pl2" style="width:0%"></div></div>
+          <div class="progress-step" id="ps3"><div class="step-dot">3</div> Course</div>
+        </div>
+        <div class="progress-bar"><div class="progress-bar-fill" id="mainPBar" style="width:33%"></div></div>
+      </div>
+
+      <!-- Form Counter -->
+      <div class="form-counter">
+        <span class="blink">⏳</span>
+        <span id="counter-num">47</span> students requested this today
+      </div>
+
+      <!-- Step 1 -->
+      <div class="form-step active" id="step1">
+        <div class="form-group">
+          <label>Full Name *</label>
+          <input type="text" id="f-name" placeholder="e.g. Rahul Sharma" />
+        </div>
+        <div class="form-group">
+          <label>Phone Number *</label>
+          <input type="tel" id="f-phone" placeholder="+91 98765 43210" />
+        </div>
+        <button class="form-submit-btn" onclick="nextStep(1)">Continue — Step 2 of 3 →</button>
+      </div>
+
+      <!-- Step 2 -->
+      <div class="form-step" id="step2">
+        <div class="form-group">
+          <label>Email Address *</label>
+          <input type="email" id="f-email" placeholder="you@example.com" />
+        </div>
+        <div class="form-group">
+          <label>Current City *</label>
+          <input type="text" id="f-city" placeholder="e.g. Mumbai, Delhi, Hyderabad" />
+        </div>
+        <div class="form-nav">
+          <button class="form-prev-btn" onclick="prevStep(2)">← Back</button>
+          <button class="form-submit-btn" onclick="nextStep(2)">Continue — Step 3 of 3 →</button>
+        </div>
+      </div>
+
+      <!-- Step 3 -->
+      <div class="form-step" id="step3">
+        <div class="form-group">
+          <label>Course Interest *</label>
+          <select id="f-course">
+            <option value="" disabled selected>Select your course</option>
+            <option>B.Tech / Engineering</option>
+            <option>MBA / Management</option>
+            <option>BBA / Commerce</option>
+            <option>B.Sc / Science</option>
+            <option>B.Pharm / Pharmacy</option>
+            <option>Law / LLB</option>
+            <option>Design / Architecture</option>
+            <option>Other</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>Preferred University</label>
+          <select id="f-uni">
+            <option value="" disabled selected>Any preference?</option>
+            <option>Swaminarayan University</option>
+            <option>Sandip University</option>
+            <option>Joy University</option>
+            <option>No Preference — Help me choose</option>
+          </select>
+        </div>
+        <div class="form-nav">
+          <button class="form-prev-btn" onclick="prevStep(3)">← Back</button>
+          <button class="form-submit-btn" onclick="submitForm()">🎓 Claim My Free Report Now →</button>
+        </div>
+      </div>
+
+      <!-- Success -->
+      <div class="form-success" id="formSuccess">
+        <div class="success-icon">🎉</div>
+        <h3 class="success-h3">You're All Set!</h3>
+        <p class="success-p">Our counselor will call you within <strong>2 hours</strong> with your personalized University Match Report. Check your WhatsApp too!</p>
+      </div>
+
+      <p class="form-trust">🔒 No spam. Your data is 100% secure. Used only for counseling.</p>
+    </div>
+  </div>
+  <div class="hero-orb1"></div>
+  <div class="hero-orb2"></div>
+</section>
+
+<!-- ──── TRUST BAR ──── -->
+<div class="trust-bar">
+  <div class="trust-inner">
+    <div class="trust-unis">
+      <span style="font-size:12px;font-weight:700;color:var(--text-muted);text-transform:uppercase;letter-spacing:0.06em;">Partner Universities:</span>
+      <a href="http://swaminarayanuniversity.ac.in" target="_blank" class="trust-uni-logo">
+        <div class="uni-icon" style="background:linear-gradient(135deg,#1A3C8F,#2E56B8)">S</div>
+        Swaminarayan University
+      </a>
+      <a href="http://sandipuniversity.edu.in" target="_blank" class="trust-uni-logo">
+        <div class="uni-icon" style="background:linear-gradient(135deg,#0F6B47,#16A06A)">S</div>
+        Sandip University
+      </a>
+      <a href="http://joyuniversity.edu.in" target="_blank" class="trust-uni-logo">
+        <div class="uni-icon" style="background:linear-gradient(135deg,#8B2FC9,#A855F7)">J</div>
+        Joy University
+      </a>
+    </div>
+    <div class="trust-stats">
+      <div class="trust-stat">
+        <div class="trust-stat-icon">🎓</div>
+        <div>
+          <div class="trust-stat-num">10,000+</div>
+          <div class="trust-stat-lbl">Students Guided</div>
+        </div>
+      </div>
+      <div class="trust-divider"></div>
+      <div class="trust-stat">
+        <div class="trust-stat-icon">🏛</div>
+        <div>
+          <div class="trust-stat-num">3+</div>
+          <div class="trust-stat-lbl">Partner Universities</div>
+        </div>
+      </div>
+      <div class="trust-divider"></div>
+      <div class="trust-stat">
+        <div class="trust-stat-icon">✅</div>
+        <div>
+          <div class="trust-stat-num">95%</div>
+          <div class="trust-stat-lbl">Admission Success</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ──── UNIVERSITIES ──── -->
+<section class="uni-section" id="universities">
+  <div class="section-inner">
+    <div class="section-header animate-up">
+      <div class="section-tag">🏛 University Explorer</div>
+      <h2 class="section-h2">Explore Our <span class="accent">Partner Universities</span></h2>
+      <p class="section-sub">Hover over any card to see key highlights, fee ranges, and why students love these institutions.</p>
+    </div>
+
+    <div class="cards-grid">
+      <!-- Card 1: Swaminarayan -->
+      <div class="flip-card animate-up">
+        <div class="flip-card-inner">
+          <div class="flip-front">
+            <div class="flip-img">🕌</div>
+            <div class="flip-body">
+              <div class="naac-badge">⭐ NAAC A+ Accredited</div>
+              <div class="flip-uni-name">Swaminarayan University</div>
+              <div class="flip-location">📍 Kalol, Gujarat</div>
+              <div class="flip-courses">
+                <span class="course-tag">B.Tech</span>
+                <span class="course-tag">MBA</span>
+                <span class="course-tag">B.Pharm</span>
+                <span class="course-tag">BCA</span>
+                <span class="course-tag">B.Sc</span>
+              </div>
+            </div>
+          </div>
+          <div class="flip-back">
+            <div class="flip-back-badge">NAAC A+ • Est. 2019</div>
+            <div class="flip-back-name">Swaminarayan University</div>
+            <ul class="flip-highlights">
+              <li>World-class modern campus with smart classrooms</li>
+              <li>Industry-integrated curriculum & live projects</li>
+              <li>100% placement assistance with top MNCs</li>
+              <li>International exchange programs available</li>
+            </ul>
+            <div class="flip-fees">Annual Fees: <strong>₹80,000 – ₹1.8L</strong></div>
+            <a href="http://swaminarayanuniversity.ac.in" target="_blank" class="flip-know-btn">Know More →</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 2: Sandip -->
+      <div class="flip-card animate-up" style="transition-delay:0.1s">
+        <div class="flip-card-inner">
+          <div class="flip-front">
+            <div class="flip-img" style="background:linear-gradient(135deg,#0F6B47,#22A06B,#4ADE80)">🌿</div>
+            <div class="flip-body">
+              <div class="naac-badge">⭐ NAAC A Accredited</div>
+              <div class="flip-uni-name">Sandip University</div>
+              <div class="flip-location">📍 Nashik, Maharashtra</div>
+              <div class="flip-courses">
+                <span class="course-tag">Engineering</span>
+                <span class="course-tag">Management</span>
+                <span class="course-tag">Law</span>
+                <span class="course-tag">Design</span>
+              </div>
+            </div>
+          </div>
+          <div class="flip-back" style="background:linear-gradient(160deg,#0A4A30,#0F6B47)">
+            <div class="flip-back-badge">NAAC A • Est. 2009</div>
+            <div class="flip-back-name">Sandip University</div>
+            <ul class="flip-highlights">
+              <li>Sprawling 100-acre eco-friendly campus</li>
+              <li>35+ specializations across schools</li>
+              <li>Strong industry tie-ups & internship network</li>
+              <li>Merit-based scholarships up to 100%</li>
+            </ul>
+            <div class="flip-fees">Annual Fees: <strong>₹70,000 – ₹2.2L</strong></div>
+            <a href="http://sandipuniversity.edu.in" target="_blank" class="flip-know-btn">Know More →</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 3: Joy -->
+      <div class="flip-card animate-up" style="transition-delay:0.2s">
+        <div class="flip-card-inner">
+          <div class="flip-front">
+            <div class="flip-img" style="background:linear-gradient(135deg,#5B21B6,#7C3AED,#A78BFA)">✨</div>
+            <div class="flip-body">
+              <div class="naac-badge">⭐ NAAC B+ Accredited</div>
+              <div class="flip-uni-name">Joy University</div>
+              <div class="flip-location">📍 West Bengal</div>
+              <div class="flip-courses">
+                <span class="course-tag">B.Tech</span>
+                <span class="course-tag">BBA</span>
+                <span class="course-tag">B.Ed</span>
+                <span class="course-tag">Agriculture</span>
+              </div>
+            </div>
+          </div>
+          <div class="flip-back" style="background:linear-gradient(160deg,#3B0C8C,#5B21B6)">
+            <div class="flip-back-badge">NAAC B+ • Est. 2017</div>
+            <div class="flip-back-name">Joy University</div>
+            <ul class="flip-highlights">
+              <li>Affordable quality education in East India</li>
+              <li>Strong focus on research & innovation</li>
+              <li>Dedicated career development cell</li>
+              <li>Hostel & transport facilities available</li>
+            </ul>
+            <div class="flip-fees">Annual Fees: <strong>₹50,000 – ₹1.5L</strong></div>
+            <a href="http://joyuniversity.edu.in" target="_blank" class="flip-know-btn">Know More →</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Compare Toggle -->
+    <div class="compare-toggle animate-up">
+      <button class="compare-btn" onclick="toggleCompare(this)">⚖️ Compare Universities Side-by-Side</button>
+    </div>
+    <div class="compare-table-wrap" id="compareTable">
+      <table class="compare-table">
+        <thead>
+          <tr>
+            <th>Feature</th>
+            <th>🕌 Swaminarayan</th>
+            <th>🌿 Sandip</th>
+            <th>✨ Joy</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>Location</td><td>Kalol, Gujarat</td><td>Nashik, Maharashtra</td><td>West Bengal</td></tr>
+          <tr><td>NAAC Rating</td><td>A+</td><td>A</td><td>B+</td></tr>
+          <tr><td>Annual Fees</td><td>₹80K–1.8L</td><td>₹70K–2.2L</td><td>₹50K–1.5L</td></tr>
+          <tr><td>Placement Support</td><td class="check">✓ 100%</td><td class="check">✓ 100%</td><td class="check">✓ Yes</td></tr>
+          <tr><td>Scholarship</td><td class="check">✓ Merit-based</td><td class="check">✓ Up to 100%</td><td class="check">✓ Available</td></tr>
+          <tr><td>International Tie-ups</td><td class="check">✓ Yes</td><td class="check">✓ Yes</td><td>—</td></tr>
+          <tr><td>Hostel</td><td class="check">✓ Available</td><td class="check">✓ Available</td><td class="check">✓ Available</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- ──── LEAD FORM SECTION ──── -->
+<section class="lead-section" id="lead-form">
+  <div class="lead-inner">
+    <div class="lead-text animate-up">
+      <div class="section-tag">🎁 Free Report</div>
+      <h2 class="section-h2">Get Your <span class="accent">FREE</span> Personalized<br>University Match Report</h2>
+      <p class="section-sub">Tell us about yourself and we'll match you with the best-fit university, course, and scholarship based on your profile.</p>
+      <ul class="lead-perks">
+        <li><div class="perk-icon">📊</div> Personalized university comparison for your profile</li>
+        <li><div class="perk-icon">🎓</div> Course-fee structure & scholarship eligibility</li>
+        <li><div class="perk-icon">📞</div> 1-on-1 expert counseling call (free)</li>
+        <li><div class="perk-icon">📝</div> Admission application assistance</li>
+        <li><div class="perk-icon">⚡</div> Results in under 2 hours</li>
+      </ul>
+    </div>
+    <div class="lead-form-wrap">
+      <div class="lead-form-card">
+        <div class="form-card-badge">🔥 47 students got this today</div>
+        <h2 class="form-card-title">Start Your Journey<br><span>in 60 Seconds</span></h2>
+        <p class="form-card-sub">Step-by-step · Free · No spam ever</p>
+
+        <div class="progress-bar-wrap">
+          <div class="progress-steps">
+            <div class="progress-step active" id="lps1"><div class="step-dot">1</div> Contact</div>
+            <div class="progress-line"><div class="progress-line-fill" id="lpl1" style="width:0%"></div></div>
+            <div class="progress-step" id="lps2"><div class="step-dot">2</div> Location</div>
+            <div class="progress-line"><div class="progress-line-fill" id="lpl2" style="width:0%"></div></div>
+            <div class="progress-step" id="lps3"><div class="step-dot">3</div> Course</div>
+          </div>
+          <div class="progress-bar"><div class="progress-bar-fill" id="leadPBar" style="width:33%"></div></div>
+        </div>
+
+        <div class="scarcity-badge">⏰ Only 3 free sessions left for today!</div>
+
+        <!-- Step 1 -->
+        <div class="form-step active" id="lstep1">
+          <div class="form-group"><label>Full Name *</label><input type="text" id="lf-name" placeholder="Your full name" /></div>
+          <div class="form-group"><label>Phone Number *</label><input type="tel" id="lf-phone" placeholder="+91 98765 43210" /></div>
+          <button class="form-submit-btn" onclick="leadNext(1)">Continue →</button>
+        </div>
+        <!-- Step 2 -->
+        <div class="form-step" id="lstep2">
+          <div class="form-group"><label>Email Address *</label><input type="email" id="lf-email" placeholder="your@email.com" /></div>
+          <div class="form-group"><label>Current City *</label><input type="text" id="lf-city" placeholder="Your city" /></div>
+          <div class="form-nav">
+            <button class="form-prev-btn" onclick="leadPrev(2)">← Back</button>
+            <button class="form-submit-btn" onclick="leadNext(2)">Continue →</button>
+          </div>
+        </div>
+        <!-- Step 3 -->
+        <div class="form-step" id="lstep3">
+          <div class="form-group"><label>Course Interest *</label>
+            <select id="lf-course">
+              <option value="" disabled selected>Select your course</option>
+              <option>B.Tech / Engineering</option>
+              <option>MBA / Management</option>
+              <option>BBA / Commerce</option>
+              <option>B.Sc / Science</option>
+              <option>B.Pharm / Pharmacy</option>
+              <option>Law / LLB</option>
+              <option>Design / Architecture</option>
+              <option>Other</option>
+            </select>
+          </div>
+          <div class="form-group"><label>Preferred University</label>
+            <select id="lf-uni">
+              <option value="" disabled selected>Any preference?</option>
+              <option>Swaminarayan University</option>
+              <option>Sandip University</option>
+              <option>Joy University</option>
+              <option>No Preference — Help me choose</option>
+            </select>
+          </div>
+          <div class="form-nav">
+            <button class="form-prev-btn" onclick="leadPrev(3)">← Back</button>
+            <button class="form-submit-btn" onclick="leadSubmit()">🎓 Claim My Free Report →</button>
+          </div>
+        </div>
+        <!-- Success -->
+        <div class="form-success" id="leadSuccess">
+          <div class="success-icon">🎉</div>
+          <h3 class="success-h3">Your Report is Being Prepared!</h3>
+          <p class="success-p">Our expert will WhatsApp your personalized report within <strong>2 hours</strong>. A counselor will call you shortly.</p>
+        </div>
+        <p class="form-trust">🔒 100% Secure · No spam · Counseling use only</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ──── HOW IT WORKS ──── -->
+<section class="how-section" id="how-it-works">
+  <div class="section-inner">
+    <div class="section-header animate-up">
+      <div class="section-tag">📋 Process</div>
+      <h2 class="section-h2">How It <span class="accent-o">Works</span></h2>
+      <p class="section-sub">Three simple steps between you and your dream university seat.</p>
+    </div>
+    <div class="steps-grid">
+      <div class="step-card animate-up">
+        <div class="step-num">01</div>
+        <div class="step-icon-wrap orange">🎯</div>
+        <h3 class="step-h3">Fill the Form</h3>
+        <p class="step-p">Share your course interest, preferred city, and contact details. It takes less than 60 seconds and it's completely free.</p>
+      </div>
+      <div class="step-card animate-up" style="transition-delay:0.15s">
+        <div class="step-num">02</div>
+        <div class="step-icon-wrap blue">📋</div>
+        <h3 class="step-h3">Get Your Match Report</h3>
+        <p class="step-p">Our experts analyze your profile and send you a personalized university match report with fees, scholarships, and admission tips.</p>
+      </div>
+      <div class="step-card animate-up" style="transition-delay:0.3s">
+        <div class="step-num">03</div>
+        <div class="step-icon-wrap green">🎓</div>
+        <h3 class="step-h3">Get Admitted!</h3>
+        <p class="step-p">We guide you through the application, documents, and fee payment — right up to securing your seat and joining letter.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ──── TESTIMONIALS ──── -->
+<section class="testi-section" id="testimonials">
+  <div class="section-inner">
+    <div class="section-header animate-up">
+      <div class="section-tag">⭐ Student Stories</div>
+      <h2 class="section-h2">What Our <span class="accent">Students Say</span></h2>
+      <p class="section-sub">Real stories from real students who found their perfect university through College Assist For You.</p>
+    </div>
+    <div class="testi-grid">
+      <div class="testi-card animate-up">
+        <div class="stars">★★★★★ 5.0</div>
+        <p class="testi-text">"I was confused between 5 universities. The team helped me shortlist the best option for my budget and career goals. Got into Sandip University with a merit scholarship!"</p>
+        <div class="testi-author">
+          <div class="testi-avatar" style="background:linear-gradient(135deg,#1A3C8F,#2E56B8)">P</div>
+          <div>
+            <div class="testi-name">Priya Mehta</div>
+            <div class="testi-meta">🏛 Sandip University, Nashik · MBA 2024</div>
+          </div>
+        </div>
+      </div>
+      <div class="testi-card animate-up" style="transition-delay:0.12s">
+        <div class="stars">★★★★★ 4.9</div>
+        <p class="testi-text">"The counselor called me within 2 hours of filling the form. They understood my situation, helped me apply, and I got into B.Tech at Swaminarayan in just 10 days!"</p>
+        <div class="testi-author">
+          <div class="testi-avatar" style="background:linear-gradient(135deg,#0F6B47,#22A06B)">A</div>
+          <div>
+            <div class="testi-name">Arjun Patel</div>
+            <div class="testi-meta">🏛 Swaminarayan University · B.Tech CSE 2024</div>
+          </div>
+        </div>
+      </div>
+      <div class="testi-card animate-up" style="transition-delay:0.24s">
+        <div class="stars">★★★★½ 4.8</div>
+        <p class="testi-text">"Coming from a small town, I had no idea how admissions worked. College Assist For You made the entire process simple — documents, fees, hostel, everything!"</p>
+        <div class="testi-author">
+          <div class="testi-avatar" style="background:linear-gradient(135deg,#8B2FC9,#A855F7)">S</div>
+          <div>
+            <div class="testi-name">Sneha Roy</div>
+            <div class="testi-meta">🏛 Joy University, WB · BBA 2025</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Video Testimonial -->
+    <div class="video-thumb animate-up" style="max-width:600px;margin:32px auto 0">
+      <div class="video-overlay">
+        <div class="play-btn"></div>
+        <div class="video-label">▶ Watch Student Success Stories (3 min)</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ──── FOOTER ──── -->
+<footer class="footer">
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <div class="logo" style="margin-bottom:10px;display:inline-flex;align-items:center;gap:10px;">
+        <div class="logo-icon">C</div>
+        <div class="logo-text" style="color:#fff">College Assist <span>For You</span></div>
+      </div>
+      <p class="footer-tagline">India's most trusted student counseling platform. We connect ambitious students with the right universities, courses, and careers.</p>
+      <div class="footer-socials">
+        <a href="#" class="social-btn" title="Facebook">f</a>
+        <a href="#" class="social-btn" title="Instagram">ig</a>
+        <a href="#" class="social-btn" title="YouTube">▶</a>
+        <a href="#" class="social-btn" title="WhatsApp">wa</a>
+      </div>
+    </div>
+    <div class="footer-col">
+      <h4>Universities</h4>
+      <ul>
+        <li><a href="http://swaminarayanuniversity.ac.in" target="_blank">Swaminarayan University</a></li>
+        <li><a href="http://sandipuniversity.edu.in" target="_blank">Sandip University</a></li>
+        <li><a href="http://joyuniversity.edu.in" target="_blank">Joy University</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Quick Links</h4>
+      <ul>
+        <li><a href="#universities">Explore Universities</a></li>
+        <li><a href="#lead-form">Get Free Counseling</a></li>
+        <li><a href="#how-it-works">How It Works</a></li>
+        <li><a href="#testimonials">Student Reviews</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Company</h4>
+      <ul>
+        <li><a href="#">About Us</a></li>
+        <li><a href="#">Privacy Policy</a></li>
+        <li><a href="#">Terms of Service</a></li>
+        <li><a href="#">Contact Us</a></li>
+        <li><a href="#">Careers</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>© 2025 College Assist For You. All rights reserved.</p>
+    <p>Made with ❤️ for students across India | <a href="#">Privacy Policy</a> · <a href="#">Terms</a></p>
+  </div>
+</footer>
+
+<!-- ──── STICKY MOBILE CTA ──── -->
+<div class="sticky-cta">
+  <span class="sticky-cta-text">📞 Talk to a Counselor — Free</span>
+  <a href="tel:+911234567890" class="sticky-cta-btn">📞 Call Now</a>
+  <a href="https://wa.me/911234567890" target="_blank" class="sticky-cta-btn wa">💬 WhatsApp</a>
+</div>
+
+<script>
+// ──── FORM LOGIC (Hero) ────
+let currentHeroStep = 1;
+function nextStep(step) {
+  document.getElementById('step' + step).classList.remove('active');
+  const next = step + 1;
+  document.getElementById('step' + next).classList.add('active');
+  currentHeroStep = next;
+  updateHeroProgress(next);
+}
+function prevStep(step) {
+  document.getElementById('step' + step).classList.remove('active');
+  const prev = step - 1;
+  document.getElementById('step' + prev).classList.add('active');
+  currentHeroStep = prev;
+  updateHeroProgress(prev);
+}
+function updateHeroProgress(step) {
+  const pct = step === 1 ? 33 : step === 2 ? 66 : 100;
+  document.getElementById('mainPBar').style.width = pct + '%';
+  [1,2,3].forEach(i => {
+    const el = document.getElementById('ps' + i);
+    el.classList.remove('active','done');
+    if (i === step) el.classList.add('active');
+    else if (i < step) el.classList.add('done');
+  });
+  if (step > 1) document.getElementById('pl1').style.width = '100%';
+  if (step > 2) document.getElementById('pl2').style.width = '100%';
+}
+function submitForm() {
+  ['step1','step2','step3'].forEach(id => document.getElementById(id).classList.remove('active'));
+  document.getElementById('formSuccess').style.display = 'block';
+  document.getElementById('mainPBar').style.width = '100%';
+}
+
+// ──── FORM LOGIC (Lead) ────
+function leadNext(step) {
+  document.getElementById('lstep' + step).classList.remove('active');
+  const next = step + 1;
+  document.getElementById('lstep' + next).classList.add('active');
+  updateLeadProgress(next);
+}
+function leadPrev(step) {
+  document.getElementById('lstep' + step).classList.remove('active');
+  const prev = step - 1;
+  document.getElementById('lstep' + prev).classList.add('active');
+  updateLeadProgress(prev);
+}
+function updateLeadProgress(step) {
+  const pct = step === 1 ? 33 : step === 2 ? 66 : 100;
+  document.getElementById('leadPBar').style.width = pct + '%';
+  [1,2,3].forEach(i => {
+    const el = document.getElementById('lps' + i);
+    el.classList.remove('active','done');
+    if (i === step) el.classList.add('active');
+    else if (i < step) el.classList.add('done');
+  });
+  if (step > 1) document.getElementById('lpl1').style.width = '100%';
+  if (step > 2) document.getElementById('lpl2').style.width = '100%';
+}
+function leadSubmit() {
+  ['lstep1','lstep2','lstep3'].forEach(id => document.getElementById(id).classList.remove('active'));
+  document.getElementById('leadSuccess').style.display = 'block';
+  document.getElementById('leadPBar').style.width = '100%';
+}
+
+// ──── COMPARE TOGGLE ────
+function toggleCompare(btn) {
+  const table = document.getElementById('compareTable');
+  table.classList.toggle('show');
+  btn.textContent = table.classList.contains('show') ? '✕ Hide Comparison' : '⚖️ Compare Universities Side-by-Side';
+}
+
+// ──── COUNTER ANIMATION ────
+function animateCounter(el, target, duration = 2000, suffix = '') {
+  const start = performance.now();
+  const update = (time) => {
+    const progress = Math.min((time - start) / duration, 1);
+    const eased = 1 - Math.pow(1 - progress, 3);
+    const current = Math.round(eased * target);
+    el.textContent = current.toLocaleString('en-IN') + suffix;
+    if (progress < 1) requestAnimationFrame(update);
+  };
+  requestAnimationFrame(update);
+}
+
+// ──── INTERSECTION OBSERVER ────
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('visible');
+      // Counter animation
+      const countEl = entry.target.querySelector('[data-count]');
+      if (countEl && !countEl.dataset.animated) {
+        countEl.dataset.animated = 'true';
+        animateCounter(countEl, parseInt(countEl.dataset.count), 2000);
+      }
+    }
+  });
+}, { threshold: 0.15 });
+
+document.querySelectorAll('.animate-up, .hero-stat').forEach(el => observer.observe(el));
+
+// Trigger hero stats on load
+window.addEventListener('load', () => {
+  setTimeout(() => {
+    document.querySelectorAll('.hero-stat [data-count]').forEach(el => {
+      if (!el.dataset.animated) {
+        el.dataset.animated = 'true';
+        const suffix = el.textContent.includes('%') || el.closest('.hero-stat').querySelector('.lbl').textContent.includes('%') ? '+' : '+';
+        animateCounter(el, parseInt(el.dataset.count), 2000);
+      }
+    });
+  }, 600);
+});
+
+// ──── LIVE COUNTER ────
+const counterEl = document.getElementById('counter-num');
+let count = 47;
+setInterval(() => {
+  if (Math.random() > 0.7) {
+    count += Math.floor(Math.random() * 2) + 1;
+    counterEl.textContent = count;
+  }
+}, 4000);
+</script>
+</body>
+</html>
