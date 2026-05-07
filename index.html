@@ -39,7 +39,7 @@ body{font-family:'Inter',sans-serif;background:#fff;color:var(--navy);overflow-x
 @keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.4;transform:scale(1.3)}}
 
 /* ── NAVBAR ── */
-.nav{background:rgba(255,255,255,.96);backdrop-filter:blur(24px);border-bottom:1px solid var(–border);padding:0 5vw;height:74px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:40px;z-index:999;box-shadow:0 2px 20px rgba(5,13,46,.06)}
+.nav{background:#fff;border-bottom:1px solid var(–border);padding:0 5vw;height:74px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:40px;z-index:999;box-shadow:0 2px 20px rgba(5,13,46,.06)}
 .nav-logo{display:flex;align-items:center;text-decoration:none;flex-shrink:0}
 .nav-logo-img{height:54px;width:auto;max-width:230px;object-fit:contain;display:block}
 .nav-links{display:flex;align-items:center;gap:28px;list-style:none}
@@ -59,7 +59,7 @@ body{font-family:'Inter',sans-serif;background:#fff;color:var(--navy);overflow-x
 .btn-purple:hover{transform:translateY(-2px);box-shadow:0 8px 28px rgba(108,61,232,.5)}
 .btn-wa{background:#25D366;color:#fff;box-shadow:0 4px 16px rgba(37,211,102,.35)}
 .btn-wa:hover{background:#1ebe5d;transform:translateY(-2px)}
-.btn-outline-white{background:rgba(255,255,255,.1);color:#fff;border:1.5px solid rgba(255,255,255,.3);backdrop-filter:blur(8px)}
+.btn-outline-white{background:rgba(255,255,255,.15);color:#fff;border:1.5px solid rgba(255,255,255,.4);}
 .btn-outline-white:hover{background:rgba(255,255,255,.2)}
 .btn-white{background:#fff;color:var(–blue);font-weight:700}
 .btn-white:hover{background:var(–off);transform:translateY(-1px)}
@@ -81,27 +81,27 @@ body{font-family:'Inter',sans-serif;background:#fff;color:var(--navy);overflow-x
 .mob-menu-ctas .btn{width:100%;justify-content:center}
 
 /* ── HERO ── */
-.hero{min-height:96vh;background:var(–grad1);position:relative;overflow:hidden;display:flex;align-items:center;padding:80px 5vw}
-.hero-mesh{position:absolute;inset:0;background-image:radial-gradient(ellipse at 20% 60%,rgba(108,61,232,.25) 0%,transparent 55%),radial-gradient(ellipse at 80% 20%,rgba(255,87,34,.12) 0%,transparent 45%),radial-gradient(ellipse at 50% 90%,rgba(24,71,194,.3) 0%,transparent 50%);pointer-events:none}
+.hero{min-height:96vh;background:#050D2E;background:linear-gradient(135deg,#050D2E 0%,#1847C2 60%,#6C3DE8 100%);position:relative;overflow:hidden;display:flex;align-items:center;padding:80px 5vw}
+.hero-mesh{position:absolute;inset:0;background-image:radial-gradient(ellipse at 20% 60%,rgba(108,61,232,.2) 0%,rgba(5,13,46,0) 55%),radial-gradient(ellipse at 80% 20%,rgba(255,87,34,.1) 0%,rgba(5,13,46,0) 45%);pointer-events:none}
 .hero-grid-lines{position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,.04) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.04) 1px,transparent 1px);background-size:70px 70px;pointer-events:none}
 .hero-inner{max-width:1240px;margin:0 auto;width:100%;display:grid;grid-template-columns:1fr 430px;align-items:center;gap:64px;position:relative;z-index:2}
 
 /* Hero left */
-.hero-eyebrow{display:inline-flex;align-items:center;gap:8px;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.16);border-radius:100px;padding:7px 18px;color:#fff;font-size:13px;font-weight:600;margin-bottom:24px;backdrop-filter:blur(10px);letter-spacing:.02em}
+.hero-eyebrow{display:inline-flex;align-items:center;gap:8px;background:rgba(255,255,255,.15);border:1px solid rgba(255,255,255,.25);border-radius:100px;padding:7px 18px;color:#fff;font-size:13px;font-weight:600;margin-bottom:24px;letter-spacing:.02em}
 .hero-h1{font-family:‘Sora’,sans-serif;font-size:clamp(36px,4.8vw,68px);font-weight:900;color:#fff;line-height:1.08;letter-spacing:-.03em;margin-bottom:22px}
-.hero-h1 .g1{background:linear-gradient(135deg,#FFB800,#FF8A50);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
-.hero-h1 .g2{background:linear-gradient(135deg,#10D979,#2C5FE4);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
-.hero-sub{font-size:clamp(15px,1.5vw,19px);color:rgba(255,255,255,.72);line-height:1.75;margin-bottom:36px;max-width:560px;font-weight:400}
+.hero-h1 .g1{color:#FFB800;}
+.hero-h1 .g2{color:#10D979;}
+.hero-sub{font-size:clamp(15px,1.5vw,19px);color:rgba(255,255,255,.85);line-height:1.75;margin-bottom:36px;max-width:560px;font-weight:400}
 .hero-ctas{display:flex;align-items:center;gap:12px;flex-wrap:wrap;margin-bottom:48px}
-.hero-stats{display:flex;align-items:stretch;gap:0;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.1);border-radius:20px;overflow:hidden;backdrop-filter:blur(16px)}
+.hero-stats{display:flex;align-items:stretch;gap:0;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.15);border-radius:20px;overflow:hidden;}
 .hero-stat{text-align:center;padding:18px 28px;flex:1}
 .hero-stat:not(:last-child){border-right:1px solid rgba(255,255,255,.1)}
 .hero-stat-num{font-family:‘Sora’,sans-serif;font-size:28px;font-weight:900;color:#fff;display:block;letter-spacing:-.02em}
-.hero-stat-lbl{font-size:12px;color:rgba(255,255,255,.5);font-weight:500;margin-top:3px;display:block}
+.hero-stat-lbl{font-size:12px;color:rgba(255,255,255,.7);font-weight:500;margin-top:3px;display:block}
 
 /* Floating cards in hero */
 .hero-float{position:relative}
-.float-card{position:absolute;background:rgba(255,255,255,.1);backdrop-filter:blur(20px);border:1px solid rgba(255,255,255,.15);border-radius:16px;padding:14px 18px;color:#fff;font-size:13px;font-weight:600;white-space:nowrap;display:flex;align-items:center;gap:10px;box-shadow:0 8px 32px rgba(0,0,0,.2)}
+.float-card{position:absolute;background:rgba(30,60,140,.85);border:1px solid rgba(255,255,255,.2);border-radius:16px;padding:14px 18px;color:#fff;font-size:13px;font-weight:600;white-space:nowrap;display:flex;align-items:center;gap:10px;box-shadow:0 8px 32px rgba(0,0,0,.3)}
 .float-card-icon{width:36px;height:36px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:18px;flex-shrink:0}
 .float-card.c1{top:-30px;left:-20px;animation:floatA 4s ease-in-out infinite}
 .float-card.c2{bottom:60px;right:-30px;animation:floatB 4.5s ease-in-out infinite}
@@ -109,7 +109,7 @@ body{font-family:'Inter',sans-serif;background:#fff;color:var(--navy);overflow-x
 @keyframes floatA{0%,100%{transform:translateY(0)}50%{transform:translateY(-12px)}}
 @keyframes floatB{0%,100%{transform:translateY(0)}50%{transform:translateY(10px)}}
 .hero-img-wrap{position:relative;z-index:2}
-.hero-main-card{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.12);border-radius:28px;overflow:hidden;backdrop-filter:blur(20px);aspect-ratio:4/5;display:flex;flex-direction:column;align-items:center;justify-content:center;position:relative;min-height:420px}
+.hero-main-card{background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.15);border-radius:28px;overflow:hidden;aspect-ratio:4/5;display:flex;flex-direction:column;align-items:center;justify-content:center;position:relative;min-height:420px}
 .hero-main-card-bg{position:absolute;inset:0;background:linear-gradient(160deg,rgba(108,61,232,.3),rgba(24,71,194,.2));z-index:0}
 .hero-central-icon{font-size:96px;position:relative;z-index:1;margin-bottom:20px;filter:drop-shadow(0 8px 24px rgba(0,0,0,.3))}
 .hero-card-text{font-family:‘Sora’,sans-serif;font-size:22px;font-weight:800;color:#fff;text-align:center;position:relative;z-index:1;line-height:1.3;padding:0 24px}
@@ -139,7 +139,7 @@ section{padding:88px 5vw}
 .sec-h .acc-blue{color:var(–blue)}
 .sec-h .acc-orange{color:var(–orange)}
 .sec-h .acc-purple{color:var(–purple)}
-.sec-h .acc-grad{background:var(–grad3);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.sec-h .acc-grad{color:#6C3DE8;}
 .sec-sub{font-size:17px;color:var(–muted);line-height:1.75;max-width:620px;font-weight:400}
 .sec-header{margin-bottom:56px;text-align:center}
 .sec-header .sec-sub{margin:0 auto}
@@ -211,7 +211,7 @@ section{padding:88px 5vw}
 .career-card::before{content:’’;position:absolute;inset:0;background:var(–grad3);opacity:0;transition:opacity .35s}
 .career-card:hover::before{opacity:1}
 .career-card:hover{transform:translateY(-6px);box-shadow:var(–sh3);border-color:transparent}
-.career-card:hover .cc-icon2,.career-card:hover .cc-name,.career-card:hover .cc-sal{color:#fff!important}
+.career-card:hover .cc-name{color:#fff!important}.career-card:hover .cc-sal{color:#A3F7D0!important}
 .career-card:hover .cc-icon-bg{background:rgba(255,255,255,.15)}
 .cc-icon-bg{width:60px;height:60px;border-radius:18px;background:var(–off);margin:0 auto 16px;display:flex;align-items:center;justify-content:center;transition:all .3s;position:relative;z-index:1}
 .cc-icon2{font-size:26px;position:relative;z-index:1}
@@ -299,7 +299,7 @@ section{padding:88px 5vw}
 .testi-card::before{content:’’;position:absolute;inset:0;background:var(–grad3);opacity:0;transition:opacity .35s}
 .testi-card:hover::before{opacity:1}
 .testi-card:hover{transform:translateY(-4px);box-shadow:var(–sh2)}
-.testi-card:hover .testi-quote,.testi-card:hover .testi-text,.testi-card:hover .testi-name,.testi-card:hover .testi-meta{color:#fff!important}
+.testi-card:hover .testi-quote{color:rgba(255,255,255,.3)!important}.testi-card:hover .testi-text,.testi-card:hover .testi-name{color:#fff!important}.testi-card:hover .testi-meta{color:rgba(255,255,255,.7)!important}
 .testi-card:hover .testi-stars{color:#FFD700}
 .testi-quote{font-size:52px;color:var(–border);font-family:Georgia,serif;line-height:.8;margin-bottom:14px;position:relative;z-index:1;transition:color .3s}
 .testi-stars{color:var(–gold);font-size:15px;margin-bottom:14px;position:relative;z-index:1}
@@ -371,9 +371,9 @@ section{padding:88px 5vw}
 .footer-grid{grid-template-columns:1fr 1fr;gap:36px}
 }
 @media(max-width:768px){
-.urgency-bar{font-size:12px;padding:10px 14px;flex-wrap:wrap;gap:6px;line-height:1.4}
+.urgency-bar{font-size:12px;padding:10px 14px;flex-wrap:wrap;gap:6px;line-height:1.4;position:sticky;top:0}
 .urgency-tag{font-size:10px}
-.nav{top:0;height:66px;padding:0 16px}
+.nav{top:0 !important;height:66px;padding:0 16px;background:#fff !important}
 .nav-logo-img{height:46px;max-width:180px}
 .nav-links{display:none}
 .nav-ctas .btn-outline-white{display:none}
@@ -455,7 +455,7 @@ body{padding-bottom:64px}
 
 <!-- FLOATING WHATSAPP -->
 
-<a href="https://wa.me/919494179336?text=Hi!%20I%20need%20guidance%20for%20B.Tech%20admissions." target="_blank" class="wa-float" title="Chat on WhatsApp">
+<a href="https://wa.me/919154096778?text=Hi!%20I%20need%20guidance%20for%20B.Tech%20admissions." target="_blank" class="wa-float" title="Chat on WhatsApp">
   <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
 </a>
 
@@ -481,7 +481,7 @@ body{padding-bottom:64px}
     <li><a href="#faq">FAQs</a></li>
   </ul>
   <div class="nav-ctas">
-    <a href="https://wa.me/919494179336" target="_blank" class="btn btn-sm btn-wa">💬 WhatsApp</a>
+    <a href="https://wa.me/919154096778" target="_blank" class="btn btn-sm btn-wa">💬 WhatsApp</a>
     <a href="#lead-form" class="btn btn-sm btn-primary pulse">Apply Now →</a>
     <button class="hamburger" id="hamburger" onclick="toggleMenu()" aria-label="Menu">
       <span></span><span></span><span></span>
@@ -499,8 +499,8 @@ body{padding-bottom:64px}
   <a href="#testimonials" onclick="toggleMenu()">Reviews</a>
   <a href="#faq" onclick="toggleMenu()">FAQs</a>
   <div class="mob-menu-ctas">
-    <a href="tel:+919494179336" class="btn btn-md btn-primary" onclick="toggleMenu()">📞 Call Now</a>
-    <a href="https://wa.me/919494179336" target="_blank" class="btn btn-md btn-wa" onclick="toggleMenu()">💬 WhatsApp</a>
+    <a href="tel:+919154096778" class="btn btn-md btn-primary" onclick="toggleMenu()">📞 Call Now</a>
+    <a href="https://wa.me/919154096778" target="_blank" class="btn btn-md btn-wa" onclick="toggleMenu()">💬 WhatsApp</a>
     <a href="#lead-form" class="btn btn-md btn-purple" onclick="toggleMenu()">Apply Now →</a>
   </div>
 </div>
@@ -524,7 +524,7 @@ body{padding-bottom:64px}
   <p class="hero-sub">Admissions, Career Guidance, Scholarships &amp; Mentorship for the Next Generation of Engineers and Leaders.</p>
   <div class="hero-ctas">
     <a href="#lead-form" class="btn btn-xl btn-primary pulse">🚀 Start Your Journey</a>
-    <a href="tel:+919494179336" class="btn btn-xl btn-outline-white">📞 Free Counseling</a>
+    <a href="tel:+919154096778" class="btn btn-xl btn-outline-white">📞 Free Counseling</a>
     <a href="#universities" class="btn btn-xl btn-outline-white">🏛 Explore Universities</a>
   </div>
   <div class="hero-stats">
@@ -731,10 +731,10 @@ body{padding-bottom:64px}
         </ul>
       </div>
       <div class="why-cards-grid reveal-right">
-        <div class="why-stat-card"><span class="wsc-num" style="background:linear-gradient(135deg,var(--gold),var(--orange));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text">5K+</span><div class="wsc-lbl">Students Guided</div><div class="wsc-sub">Across 15+ states in India</div></div>
-        <div class="why-stat-card"><span class="wsc-num" style="background:linear-gradient(135deg,var(--green),var(--blue2));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text">95%</span><div class="wsc-lbl">Admission Success</div><div class="wsc-sub">Students secured seats</div></div>
-        <div class="why-stat-card"><span class="wsc-num" style="background:linear-gradient(135deg,var(--purple),var(--orange));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text">2hr</span><div class="wsc-lbl">Expert Response</div><div class="wsc-sub">Industry fastest</div></div>
-        <div class="why-stat-card"><span class="wsc-num" style="background:linear-gradient(135deg,var(--gold),var(--green));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text">4.9⭐</span><div class="wsc-lbl">Google Rating</div><div class="wsc-sub">Verified reviews</div></div>
+        <div class="why-stat-card"><span class="wsc-num" style="color:var(--gold)">5K+</span><div class="wsc-lbl">Students Guided</div><div class="wsc-sub">Across 15+ states in India</div></div>
+        <div class="why-stat-card"><span class="wsc-num" style="color:var(--green)">95%</span><div class="wsc-lbl">Admission Success</div><div class="wsc-sub">Students secured seats</div></div>
+        <div class="why-stat-card"><span class="wsc-num" style="color:var(--purple)">2hr</span><div class="wsc-lbl">Expert Response</div><div class="wsc-sub">Industry fastest</div></div>
+        <div class="why-stat-card"><span class="wsc-num" style="color:var(--gold)">4.9⭐</span><div class="wsc-lbl">Google Rating</div><div class="wsc-sub">Verified reviews</div></div>
       </div>
     </div>
   </div>
@@ -773,8 +773,8 @@ body{padding-bottom:64px}
         <li class="lead-perk"><div class="lead-perk-icon">🚀</div>Career path recommendation based on your goals</li>
       </ul>
       <div class="lead-ctas">
-        <a href="https://wa.me/919494179336?text=Hi!%20I%20want%20free%20counseling." target="_blank" class="btn btn-md btn-wa">💬 WhatsApp Directly</a>
-        <a href="tel:+919494179336" class="btn btn-md btn-outline-white">📞 +91 94941 79336</a>
+        <a href="https://wa.me/919154096778?text=Hi!%20I%20want%20free%20counseling." target="_blank" class="btn btn-md btn-wa">💬 WhatsApp Directly</a>
+        <a href="tel:+919154096778" class="btn btn-md btn-outline-white">📞 +91 91540 96778</a>
       </div>
     </div>
     <div class="lead-form-card reveal-right">
@@ -812,7 +812,7 @@ body{padding-bottom:64px}
         <div class="f-success-icon">🎉</div>
         <h3 class="f-success-h">You're All Set!</h3>
         <p class="f-success-p">Our expert will WhatsApp your personalized report within <strong>2 hours</strong>. A counselor will call you shortly.</p>
-        <a href="https://wa.me/919494179336?text=Hi!%20I%20just%20submitted%20the%20form." target="_blank" class="btn btn-md btn-wa" style="margin-top:16px;width:100%">💬 Message Us on WhatsApp</a>
+        <a href="https://wa.me/919154096778?text=Hi!%20I%20just%20submitted%20the%20form." target="_blank" class="btn btn-md btn-wa" style="margin-top:16px;width:100%">💬 Message Us on WhatsApp</a>
       </div>
       <p class="f-trust">🔒 100% Secure · No spam · Free counseling only</p>
     </div>
@@ -883,7 +883,7 @@ body{padding-bottom:64px}
           <a href="#" class="soc-btn">f</a>
           <a href="#" class="soc-btn">ig</a>
           <a href="#" class="soc-btn">yt</a>
-          <a href="https://wa.me/919494179336" target="_blank" class="soc-btn">wa</a>
+          <a href="https://wa.me/919154096778" target="_blank" class="soc-btn">wa</a>
         </div>
       </div>
       <div class="footer-col">
@@ -907,8 +907,8 @@ body{padding-bottom:64px}
       <div class="footer-col">
         <h4>Contact</h4>
         <ul>
-          <li><a href="tel:+919494179336">📞 +91 94941 79336</a></li>
-          <li><a href="https://wa.me/919494179336" target="_blank">💬 WhatsApp Us</a></li>
+          <li><a href="tel:+919154096778">📞 +91 91540 96778</a></li>
+          <li><a href="https://wa.me/919154096778" target="_blank">💬 WhatsApp Us</a></li>
           <li><a href="#lead-form">📝 Apply Online</a></li>
           <li><a href="#">Privacy Policy</a></li>
           <li><a href="#">Terms of Service</a></li>
@@ -925,8 +925,8 @@ body{padding-bottom:64px}
 <!-- STICKY MOBILE BAR -->
 
 <div class="sticky-bar">
-  <a href="tel:+919494179336" class="btn btn-sm btn-primary">📞 Call</a>
-  <a href="https://wa.me/919494179336" target="_blank" class="btn btn-sm btn-wa">💬 WhatsApp</a>
+  <a href="tel:+919154096778" class="btn btn-sm btn-primary">📞 Call</a>
+  <a href="https://wa.me/919154096778" target="_blank" class="btn btn-sm btn-wa">💬 WhatsApp</a>
   <a href="#lead-form" class="btn btn-sm btn-purple">🚀 Apply Free</a>
 </div>
 
