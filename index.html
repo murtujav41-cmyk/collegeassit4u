@@ -149,7 +149,7 @@ section{padding:88px 5vw}
 .journey-flow{display:flex;align-items:flex-start;gap:0;position:relative}
 .journey-flow::before{content:’’;position:absolute;top:36px;left:calc(10%);right:calc(10%);height:2px;background:linear-gradient(90deg,var(–purple),var(–blue),var(–green));z-index:0}
 .journey-step{flex:1;text-align:center;padding:0 16px;position:relative;z-index:1}
-.journey-dot{width:72px;height:72px;border-radius:50%;margin:0 auto 20px;display:flex;align-items:center;justify-content:center;font-size:28px;box-shadow:0 8px 24px rgba(0,0,0,.15);position:relative;z-index:1;border:3px solid #fff}
+.journey-dot{width:72px;height:72px;border-radius:50%;margin:0 auto 20px;display:flex;align-items:center;justify-content:center;font-size:30px;line-height:1;box-shadow:0 8px 24px rgba(0,0,0,.15);position:relative;z-index:1;border:3px solid #fff}
 .journey-step-title{font-family:‘Sora’,sans-serif;font-size:16px;font-weight:800;color:var(–navy);margin-bottom:8px}
 .journey-step-desc{font-size:13px;color:var(–muted);line-height:1.6}
 
@@ -178,8 +178,8 @@ section{padding:88px 5vw}
 .uni-feats li::before{content:“✓”;color:var(–green);font-weight:700;font-size:13px;flex-shrink:0}
 .uni-fee{font-size:13px;color:var(–muted);margin-bottom:16px}
 .uni-fee strong{color:var(–navy);font-size:15px;font-weight:700}
-.uni-btn{width:100%;padding:13px;background:var(–grad1);color:#fff;border:none;border-radius:12px;font-size:14px;font-weight:700;cursor:pointer;transition:all .25s;font-family:‘Inter’,sans-serif;letter-spacing:.01em}
-.uni-btn:hover{opacity:.9;transform:translateY(-1px);box-shadow:0 8px 24px rgba(5,13,46,.25)}
+.uni-btn{width:100%;padding:14px;background:linear-gradient(135deg,#FF5722,#E64A19);color:#fff;border:none;border-radius:12px;font-size:14px;font-weight:700;cursor:pointer;transition:all .25s;font-family:‘Inter’,sans-serif;letter-spacing:.01em;box-shadow:0 4px 16px rgba(255,87,34,.35)}
+.uni-btn:hover{opacity:.9;transform:translateY(-1px);box-shadow:0 8px 24px rgba(255,87,34,.45)}
 
 /* ── WHY US ── */
 .why-sec{background-color:#1847C2;background-image:linear-gradient(135deg,#050D2E 0%,#1847C2 60%,#6C3DE8 100%);position:relative}
@@ -229,12 +229,13 @@ section{padding:88px 5vw}
 /* ── HOW IT WORKS ── */
 .how-sec{background:var(–off)}
 .how-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:0;position:relative}
-.how-grid::before{content:’’;position:absolute;top:52px;left:16.5%;right:16.5%;height:2px;background:linear-gradient(90deg,var(–purple),var(–blue2),var(–green));z-index:0}
-.how-step{padding:40px 32px;text-align:center;position:relative;z-index:1}
-.how-step-num{width:72px;height:72px;border-radius:50%;background:var(–grad3);color:#fff;font-family:‘Sora’,sans-serif;font-size:26px;font-weight:900;display:flex;align-items:center;justify-content:center;margin:0 auto 22px;box-shadow:0 8px 28px rgba(108,61,232,.35);position:relative;z-index:1;border:3px solid #fff}
-.how-step-icon{font-size:34px;margin-bottom:16px}
-.how-step-title{font-family:‘Sora’,sans-serif;font-size:18px;font-weight:800;color:var(–navy);margin-bottom:10px}
-.how-step-desc{font-size:14px;color:var(–muted);line-height:1.7}
+.how-grid::before{content:’’;position:absolute;top:54px;left:16.5%;right:16.5%;height:2px;background:linear-gradient(90deg,#6C3DE8,#2C5FE4,#10D979);z-index:0}
+.how-step{padding:40px 24px;text-align:center;position:relative;z-index:1}
+.how-step-circle{width:88px;height:88px;border-radius:50%;background:linear-gradient(135deg,#6C3DE8,#2C5FE4);display:flex;align-items:center;justify-content:center;margin:0 auto 20px;box-shadow:0 8px 28px rgba(108,61,232,.35);border:4px solid #fff;position:relative}
+.how-step-emoji{font-size:36px;line-height:1;display:block}
+.how-step-badge{position:absolute;top:-6px;right:-6px;width:26px;height:26px;border-radius:50%;background:#FF5722;color:#fff;font-family:‘Sora’,sans-serif;font-size:12px;font-weight:900;display:flex;align-items:center;justify-content:center;border:2px solid #fff;box-shadow:0 2px 8px rgba(255,87,34,.4)}
+.how-step-title{font-family:‘Sora’,sans-serif;font-size:17px;font-weight:800;color:#050D2E;margin-bottom:10px}
+.how-step-desc{font-size:13.5px;color:#64748B;line-height:1.7}
 
 /* ── LEAD FORM ── */
 .lead-sec{background-color:#1847C2;background-image:linear-gradient(135deg,#050D2E 0%,#1847C2 60%,#6C3DE8 100%);position:relative}
@@ -310,7 +311,7 @@ section{padding:88px 5vw}
 .testi-meta{font-size:12px;color:var(–muted);transition:color .3s;margin-top:2px}
 
 /* ── FAQ ── */
-.faq-sec{background:var(–off)}
+.faq-sec{background:#fff}
 .faq-list{max-width:800px;margin:0 auto;display:flex;flex-direction:column;gap:10px}
 .faq-item{background:#fff;border-radius:16px;border:1px solid var(–border);overflow:hidden;transition:box-shadow .2s}
 .faq-item:hover{box-shadow:var(–sh)}
@@ -410,8 +411,10 @@ section{padding:56px 16px}
 .career-grid{grid-template-columns:repeat(2,1fr)}
 .how-grid{grid-template-columns:1fr;gap:0}
 .how-grid::before{display:none}
-.how-step{padding:28px 20px}
-.how-step:not(:last-child){border-bottom:1px solid var(–border)}
+.how-step{padding:28px 20px;display:flex;flex-direction:column;align-items:center}
+.how-step:not(:last-child){border-bottom:1px solid #E2E8F0}
+.how-step-circle{width:80px;height:80px;margin-bottom:16px}
+.how-step-emoji{font-size:32px}
 .journey-flow{flex-direction:column;gap:24px}
 .journey-flow::before{display:none}
 .journey-step{padding:0}
@@ -424,12 +427,14 @@ section{padding:56px 16px}
 .footer-bottom{flex-direction:column;text-align:center;gap:8px}
 .footer-bottom p{font-size:12px}
 .sticky-bar{display:flex !important}
+.faq-sec{padding-bottom:40px}
+.footer{padding-bottom:30px}
 body{padding-bottom:64px}
 .lead-sec{padding:56px 16px}
 .lead-inner{grid-template-columns:1fr;gap:36px}
 .lead-form-card{padding:26px 20px;border-radius:20px}
 .lead-ctas{flex-direction:column;gap:10px}
-.lead-ctas .btn{width:100%;justify-content:center}
+.lead-ctas .btn{width:100%;justify-content:center;padding:15px 20px;font-size:15px}
 .companies-grid{gap:24px}
 .company-item{width:90px;font-size:16px}
 .fgroup input,.fgroup select{font-size:16px;padding:13px 16px}
@@ -754,9 +759,30 @@ body{padding-bottom:64px}
       <p class="sec-sub">From form to joining letter — we guide you every step of the way, completely free.</p>
     </div>
     <div class="how-grid">
-      <div class="how-step reveal"><div class="how-step-num">1</div><div class="how-step-icon">📝</div><div class="how-step-title">Fill the Form</div><div class="how-step-desc">Share your name, phone, city & 12th year. Takes just 60 seconds and it's 100% free.</div></div>
-      <div class="how-step reveal"><div class="how-step-num">2</div><div class="how-step-icon">📊</div><div class="how-step-title">Get Your Match Report</div><div class="how-step-desc">We send you a personalized university comparison with fees, scholarships & career paths via WhatsApp.</div></div>
-      <div class="how-step reveal"><div class="how-step-num">3</div><div class="how-step-icon">🎓</div><div class="how-step-title">Get Admitted!</div><div class="how-step-desc">We guide you through the application, documents, and fee payment right up to your joining letter.</div></div>
+      <div class="how-step reveal">
+        <div class="how-step-circle">
+          <span class="how-step-emoji">📝</span>
+          <span class="how-step-badge">1</span>
+        </div>
+        <div class="how-step-title">Fill the Form</div>
+        <div class="how-step-desc">Share your name, phone, city & 12th year. Takes just 60 seconds and it's 100% free.</div>
+      </div>
+      <div class="how-step reveal">
+        <div class="how-step-circle">
+          <span class="how-step-emoji">📊</span>
+          <span class="how-step-badge">2</span>
+        </div>
+        <div class="how-step-title">Get Your Match Report</div>
+        <div class="how-step-desc">We send you a personalized university comparison with fees, scholarships & career paths via WhatsApp.</div>
+      </div>
+      <div class="how-step reveal">
+        <div class="how-step-circle">
+          <span class="how-step-emoji">🎓</span>
+          <span class="how-step-badge">3</span>
+        </div>
+        <div class="how-step-title">Get Admitted!</div>
+        <div class="how-step-desc">We guide you through the application, documents, and fee payment right up to your joining letter.</div>
+      </div>
     </div>
   </div>
 </section>
@@ -778,7 +804,7 @@ body{padding-bottom:64px}
       </ul>
       <div class="lead-ctas">
         <a href="https://wa.me/919154096778?text=Hi!%20I%20want%20free%20counseling." target="_blank" class="btn btn-md btn-wa">💬 WhatsApp Directly</a>
-        <a href="tel:+919154096778" class="btn btn-md btn-outline-white">📞 +91 91540 96778</a>
+        <a href="tel:+919154096778" class="btn btn-md btn-white" style="color:#1847C2;font-weight:700">📞 +91 91540 96778</a>
       </div>
     </div>
     <div class="lead-form-card reveal-right">
@@ -1062,4 +1088,4 @@ setVH();window.addEventListener('resize',setVH);
 </script>
 
 </body>
-</html>
+</html> ga
