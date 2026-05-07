@@ -123,18 +123,18 @@ body{font-family:'Outfit',sans-serif;background:#fff;color:var(--navy);overflow-
 .f-success-p{font-size:13px;color:var(--muted);line-height:1.6}
 
 /* TRUST BAR */
-.trust-bar{background:#fff;border-bottom:1px solid var(--border);padding:18px 5vw}
-.trust-bar-inner{max-width:1200px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap}
+.trust-bar{background:#fff;border-bottom:1px solid var(--border);padding:16px 5vw}
+.trust-bar-inner{max-width:1200px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap}
 .trust-uni-strip{display:flex;align-items:center;gap:8px;flex-wrap:wrap}
-.trust-uni-pill{display:flex;align-items:center;gap:8px;padding:7px 14px;background:var(--off);border:1px solid var(--border);border-radius:100px;font-size:12.5px;font-weight:600;color:var(--navy);cursor:default;transition:all .2s}
+.trust-uni-pill{display:flex;align-items:center;gap:8px;padding:7px 14px;background:var(--off);border:1px solid var(--border);border-radius:100px;font-size:12.5px;font-weight:600;color:var(--navy);cursor:default;transition:all .2s;white-space:nowrap}
 .trust-uni-pill:hover{border-color:var(--blue)}
 .uni-dot{width:8px;height:8px;border-radius:50%;flex-shrink:0}
-.trust-metrics{display:flex;align-items:center;gap:20px;flex-wrap:wrap}
-.trust-metric{display:flex;align-items:center;gap:8px}
-.trust-metric-icon{font-size:18px}
-.trust-metric-num{font-weight:800;font-size:17px;color:var(--blue)}
+.trust-metrics{display:flex;align-items:center;gap:16px;flex-wrap:wrap}
+.trust-metric{display:flex;align-items:center;gap:8px;white-space:nowrap}
+.trust-metric-icon{font-size:18px;flex-shrink:0}
+.trust-metric-num{font-weight:800;font-size:16px;color:var(--blue)}
 .trust-metric-lbl{font-size:11px;color:var(--muted);font-weight:500}
-.trust-sep{width:1px;height:28px;background:var(--border)}
+.trust-sep{width:1px;height:28px;background:var(--border);flex-shrink:0}
 
 /* SECTIONS */
 section{padding:80px 5vw}
@@ -333,12 +333,12 @@ section{padding:80px 5vw}
 
   /* Trust bar */
   .trust-bar{padding:14px}
-  .trust-bar-inner{flex-direction:column;gap:12px}
-  .trust-uni-strip{overflow-x:auto;padding-bottom:4px;-webkit-overflow-scrolling:touch;flex-wrap:nowrap;gap:6px}
-  .trust-uni-pill{white-space:nowrap;flex-shrink:0;font-size:12px;padding:6px 12px}
-  .trust-metrics{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;width:100%}
-  .trust-metric{flex-direction:column;align-items:center;text-align:center;gap:3px;background:var(--off);border-radius:10px;padding:10px 8px}
-  .trust-metric-num{font-size:16px}
+  .trust-bar-inner{flex-direction:column;gap:12px;align-items:flex-start}
+  .trust-uni-strip{flex-wrap:wrap;gap:6px;width:100%}
+  .trust-uni-pill{font-size:12px;padding:6px 12px}
+  .trust-metrics{display:flex;align-items:center;gap:10px;flex-wrap:wrap;width:100%}
+  .trust-metric{flex-direction:row;align-items:center;gap:6px}
+  .trust-metric-num{font-size:15px}
   .trust-metric-lbl{font-size:10px}
   .trust-sep{display:none}
 
@@ -506,9 +506,9 @@ section{padding:80px 5vw}
         <a href="https://wa.me/919494179336?text=Hi!%20I%20want%20free%20counseling." target="_blank" class="btn btn-lg btn-wa">💬 WhatsApp Us</a>
       </div>
       <div class="hero-stats">
-        <div class="hero-stat"><span class="hero-stat-num" data-count="10000">0</span><span class="hero-stat-lbl">Students Guided</span></div>
-        <div class="hero-stat"><span class="hero-stat-num" data-count="3">0</span><span class="hero-stat-lbl">Partner Universities</span></div>
+        <div class="hero-stat"><span class="hero-stat-num" data-count="5000" data-suffix="+">0</span><span class="hero-stat-lbl">Students Guided</span></div>
         <div class="hero-stat"><span class="hero-stat-num" data-count="95">0</span><span class="hero-stat-lbl">% Success Rate</span></div>
+        <div class="hero-stat"><span class="hero-stat-num">4.9 ⭐</span><span class="hero-stat-lbl">Google Rating</span></div>
       </div>
     </div>
     <!-- HERO FORM -->
@@ -564,7 +564,7 @@ section{padding:80px 5vw}
       <div class="trust-uni-pill"><span class="uni-dot" style="background:#7C3AED"></span>Joy University</div>
     </div>
     <div class="trust-metrics">
-      <div class="trust-metric"><span class="trust-metric-icon">🎓</span><div><div class="trust-metric-num">10,000+</div><div class="trust-metric-lbl">Students Guided</div></div></div>
+      <div class="trust-metric"><span class="trust-metric-icon">🎓</span><div><div class="trust-metric-num">5,000+</div><div class="trust-metric-lbl">Students Guided</div></div></div>
       <div class="trust-sep"></div>
       <div class="trust-metric"><span class="trust-metric-icon">✅</span><div><div class="trust-metric-num">95%</div><div class="trust-metric-lbl">Success Rate</div></div></div>
       <div class="trust-sep"></div>
@@ -668,7 +668,7 @@ section{padding:80px 5vw}
         </ul>
       </div>
       <div class="why-cards reveal">
-        <div class="why-card"><span class="wc-num">10K+</span><div class="wc-lbl">Students Guided</div><div class="wc-sub">Across 15+ states in India</div></div>
+        <div class="why-card"><span class="wc-num">5K+</span><div class="wc-lbl">Students Guided</div><div class="wc-sub">Across 15+ states in India</div></div>
         <div class="why-card"><span class="wc-num">95%</span><div class="wc-lbl">Admission Success</div><div class="wc-sub">Students secured seats</div></div>
         <div class="why-card"><span class="wc-num">2hrs</span><div class="wc-lbl">Response Time</div><div class="wc-sub">Fastest in the industry</div></div>
         <div class="why-card"><span class="wc-num">4.9⭐</span><div class="wc-lbl">Google Rating</div><div class="wc-sub">From 500+ reviews</div></div>
@@ -973,11 +973,12 @@ function toggleFaq(btn) {
 
 // COUNTER ROLL
 function rollCount(el, target, dur=2000) {
+  const suffix = el.dataset.suffix || '';
   const start = performance.now();
   const tick = t => {
     const p = Math.min((t-start)/dur,1);
     const e = 1-Math.pow(1-p,3);
-    el.textContent = Math.round(e*target).toLocaleString('en-IN');
+    el.textContent = Math.round(e*target).toLocaleString('en-IN') + suffix;
     if(p<1) requestAnimationFrame(tick);
   };
   requestAnimationFrame(tick);
