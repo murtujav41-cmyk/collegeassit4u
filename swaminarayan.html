@@ -372,50 +372,49 @@ section{padding:80px 5vw}
 
     <!-- RIGHT: FORM -->
     <div class="hero-form" id="hero-form">
-      <div class="form-badge">⚙️ B.TECH 2+2 GLOBAL PROGRAM</div>
-      <h2 class="form-h">Apply for <span style="color:var(--blue)">B.Tech 2+2</span> Global Program</h2>
-      <p class="form-sub">60 seconds · Expert call in 2 hours · 100% Free</p>
+      <div class="form-badge">🔥 <span id="swCnt">47</span> students applied today</div>
+      <h2 class="form-h">Get Your <span style="color:var(--blue)">FREE</span> University Match Report</h2>
+      <p class="form-sub">Takes 60 seconds · Completely Free · No obligation</p>
       <div class="prog-wrap">
         <div class="prog-steps">
           <div class="prog-step active" id="sps1"><div class="prog-dot">1</div>&nbsp;Contact</div>
           <div class="prog-line"><div class="prog-line-fill" id="spl1"></div></div>
-          <div class="prog-step" id="sps2"><div class="prog-dot">2</div>&nbsp;Details</div>
+          <div class="prog-step" id="sps2"><div class="prog-dot">2</div>&nbsp;Location</div>
         </div>
         <div class="prog-bar"><div class="prog-bar-fill" id="sPBar" style="width:50%"></div></div>
       </div>
-      <div class="scarcity">🔥 Only 3 eligibility check slots left today!</div>
+      <div class="scarcity">🔥 Only 3 free counseling slots left today!</div>
 
       <!-- Step 1 -->
       <div class="f-step active" id="sS1">
-        <div class="fgroup"><label>Full Name *</label><input type="text" id="s-name" placeholder="Your full name"></div>
+        <div class="fgroup"><label>Full Name *</label><input type="text" id="s-name" placeholder="e.g. Rahul Sharma"></div>
         <div class="fgroup"><label>Phone Number *</label><input type="tel" id="s-phone" placeholder="+91 98765 43210"></div>
-        <div class="fgroup"><label>Email Address *</label><input type="email" id="s-email" placeholder="you@email.com"></div>
+        <div class="fgroup"><label>12th Completion Year *</label>
+          <select id="s-year"><option value="" disabled selected>Select year</option><option>2026</option><option>2025</option><option>2024</option><option>2023</option><option>2022</option><option>2021 or earlier</option></select>
+        </div>
         <button class="btn-orange" onclick="sNext()">Continue — Step 2 of 2 →</button>
       </div>
 
       <!-- Step 2 -->
       <div class="f-step" id="sS2">
-        <div class="fgroup"><label>Preferred Destination Country *</label>
-          <select id="s-country"><option value="" disabled selected>Select country</option><option>USA</option><option>UK</option><option>Canada</option><option>Australia</option><option>Germany</option><option>Dubai / UAE</option><option>Other</option></select>
+        <div class="fgroup"><label>Current City *</label><input type="text" id="s-city" placeholder="e.g. Hyderabad, Mumbai"></div>
+        <div class="fgroup"><label>Current State *</label>
+          <select id="s-state"><option value="" disabled selected>Select your state</option><option>Andhra Pradesh</option><option>Arunachal Pradesh</option><option>Assam</option><option>Bihar</option><option>Chhattisgarh</option><option>Goa</option><option>Gujarat</option><option>Haryana</option><option>Himachal Pradesh</option><option>Jharkhand</option><option>Karnataka</option><option>Kerala</option><option>Madhya Pradesh</option><option>Maharashtra</option><option>Manipur</option><option>Meghalaya</option><option>Mizoram</option><option>Nagaland</option><option>Odisha</option><option>Punjab</option><option>Rajasthan</option><option>Sikkim</option><option>Tamil Nadu</option><option>Telangana</option><option>Tripura</option><option>Uttar Pradesh</option><option>Uttarakhand</option><option>West Bengal</option><option>Delhi</option><option>Other</option></select>
         </div>
-        <div class="fgroup"><label>Current Education Level *</label>
-          <select id="s-edu"><option value="" disabled selected>Select level</option><option>Appearing in 12th (2026)</option><option>12th Completed (2025)</option><option>12th Completed (2024)</option><option>12th Completed (2023 or earlier)</option><option>Diploma</option><option>Other</option></select>
-        </div>
-        <div class="fgroup"><label>Current City</label><input type="text" id="s-city" placeholder="Your city"></div>
         <div class="f-nav">
           <button class="f-back" onclick="sPrev()">← Back</button>
-          <button class="btn-orange" style="flex:1;margin-bottom:0" onclick="sSubmit()">🌍 Get Global Prospectus →</button>
+          <button class="btn-orange" style="flex:1;margin-bottom:0" onclick="sSubmit()">🎓 Claim My Free Report →</button>
         </div>
       </div>
 
       <!-- Success -->
       <div class="f-ok" id="sOK">
         <div class="f-ok-icon">🎉</div>
-        <h3 class="f-ok-h">Eligibility Confirmed!</h3>
-        <p class="f-ok-p">Our global counselor will call you within <strong>2 hours</strong> with the full 2+2 program prospectus & scholarship details!</p>
-        <a href="https://wa.me/919154096778?text=Hi!%20I%20just%20applied%20for%20the%202%2B2%20program." target="_blank" class="wa-btn-form">💬 WhatsApp Us Now</a>
+        <h3 class="f-ok-h">You're All Set!</h3>
+        <p class="f-ok-p">Our counselor will call you within <strong>2 hours</strong> with your personalized B.Tech match report. Check WhatsApp too!</p>
+        <a href="https://wa.me/919154096778?text=Hi!%20I%20just%20applied%20for%20Swaminarayan%20University." target="_blank" class="wa-btn-form">💬 Message Us on WhatsApp</a>
       </div>
-      <p class="f-trust">🔒 100% Secure · No spam · Free counseling</p>
+      <p class="f-trust">🔒 No spam. 100% Secure. Counseling use only.</p>
     </div>
   </div>
 </section>
@@ -625,24 +624,34 @@ section{padding:80px 5vw}
 </div>
 
 <script>
-const EDGE = 'https://qjrkbxmigsvqrmsologd.supabase.co/functions/v1/submit-lead';
-const ANON = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InFqcmtieG1pZ3N2cXJtc29sb2dkIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzgzNDUzODgsImV4cCI6MjA5MzkyMTM4OH0.1nz4ecXSBoy0TSakCtnSHhNSt-M6SZ9b7eGeHLaeRYk';
+// ── SUPABASE LEAD SUBMISSION ──
+const SUPABASE_EDGE = 'https://qjrkbxmigsvqrmsologd.supabase.co/functions/v1/submit-lead';
+const SUPABASE_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InFqcmtieG1pZ3N2cXJtc29sb2dkIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzgzNDUzODgsImV4cCI6MjA5MzkyMTM4OH0.1nz4ecXSBoy0TSakCtnSHhNSt-M6SZ9b7eGeHLaeRYk';
 
 async function submitLead(data) {
   try {
-    await fetch(EDGE, {
+    const resp = await fetch(SUPABASE_EDGE, {
       method: 'POST',
-      headers: {'Content-Type':'application/json','apikey':ANON,'Authorization':'Bearer '+ANON},
+      headers: {
+        'Content-Type': 'application/json',
+        'apikey': SUPABASE_KEY,
+        'Authorization': 'Bearer ' + SUPABASE_KEY
+      },
       body: JSON.stringify(data)
     });
-  } catch(e) { console.error(e); }
+    const result = await resp.json();
+    console.log('Lead saved:', result);
+  } catch(e) {
+    console.error('Lead submission error:', e);
+  }
 }
 
 function validate(ids) {
   for (const id of ids) {
     const el = document.getElementById(id);
     if (!el || !el.value.trim()) {
-      el.classList.add('err'); el.focus();
+      el.classList.add('err');
+      el.focus();
       el.addEventListener('input', () => el.classList.remove('err'), {once:true});
       return false;
     }
@@ -651,7 +660,7 @@ function validate(ids) {
 }
 
 function sNext() {
-  if (!validate(['s-name','s-phone','s-email'])) return;
+  if (!validate(['s-name','s-phone','s-year'])) return;
   document.getElementById('sS1').classList.remove('active');
   document.getElementById('sS2').classList.add('active');
   document.getElementById('sPBar').style.width='100%';
@@ -666,20 +675,26 @@ function sPrev() {
   document.getElementById('spl1').style.width='0%';
 }
 function sSubmit() {
-  if (!validate(['s-country','s-edu'])) return;
+  if (!validate(['s-city','s-state'])) return;
   submitLead({
     name: document.getElementById('s-name').value,
     phone: document.getElementById('s-phone').value,
-    year_12th: document.getElementById('s-edu').value,
-    city: document.getElementById('s-city').value || '',
-    state: '',
-    university_interest: 'Swaminarayan University — B.Tech 2+2 · ' + document.getElementById('s-country').value,
+    year_12th: document.getElementById('s-year').value,
+    city: document.getElementById('s-city').value,
+    state: document.getElementById('s-state').value,
+    university_interest: 'Swaminarayan University — B.Tech',
     source: 'Swaminarayan Landing Page'
   });
   document.getElementById('sS2').classList.remove('active');
   document.getElementById('sOK').style.display='block';
   document.getElementById('sPBar').style.width='100%';
 }
+
+// Live counter
+let swC = 47;
+setInterval(() => {
+  if (Math.random() > .7) { swC++; const el = document.getElementById('swCnt'); if(el) el.textContent = swC; }
+}, 5000);
 
 function filterGallery(cat, btn) {
   document.querySelectorAll('.gtab').forEach(b => b.classList.remove('active'));
