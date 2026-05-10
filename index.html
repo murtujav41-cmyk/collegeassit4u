@@ -1054,6 +1054,30 @@ function filterUni(state, btn) {
   });
 }
 
+
+// ── SUPABASE LEAD SUBMISSION ──
+const SUPABASE_EDGE = 'https://qjrkbxmigsvqrmsologd.supabase.co/functions/v1/submit-lead';
+const SUPABASE_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InFqcmtieG1pZ3N2cXJtc29sb2dkIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzgzNDUzODgsImV4cCI6MjA5MzkyMTM4OH0.1nz4ecXSBoy0TSakCtnSHhNSt-M6SZ9b7eGeHLaeRYk';
+
+async function submitLead(data) {
+  try {
+    const resp = await fetch(SUPABASE_EDGE, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'apikey': SUPABASE_KEY,
+        'Authorization': 'Bearer ' + SUPABASE_KEY
+      },
+      body: JSON.stringify(data)
+    });
+    const result = await resp.json();
+    console.log('Lead saved:', result);
+    return result;
+  } catch(e) {
+    console.error('Lead submission error:', e);
+  }
+}
+
 // MOBILE MENU
 function toggleMenu(){
   const m=document.getElementById('mobMenu');
@@ -1096,6 +1120,15 @@ function hPrev(s){
 }
 function hSubmit(){
   if(!validate(['h-city','h-state']))return;
+  submitLead({
+    name: document.getElementById('h-name').value,
+    phone: document.getElementById('h-phone').value,
+    year_12th: document.getElementById('h-year').value,
+    city: document.getElementById('h-city').value,
+    state: document.getElementById('h-state').value,
+    university_interest: 'General Inquiry',
+    source: 'Hero Form'
+  });
   document.getElementById('hS2').classList.remove('active');
   document.getElementById('hOK').style.display='block';
   document.getElementById('hPBar').style.width='100%';
@@ -1119,6 +1152,15 @@ function lPrev(s){
 }
 function lSubmit(){
   if(!validate(['l-city','l-state']))return;
+  submitLead({
+    name: document.getElementById('l-name').value,
+    phone: document.getElementById('l-phone').value,
+    year_12th: document.getElementById('l-year').value,
+    city: document.getElementById('l-city').value,
+    state: document.getElementById('l-state').value,
+    university_interest: document.querySelector('#lead-form .form-badge')?.textContent?.replace('🎓 Applying for: ','') || 'General Inquiry',
+    source: 'Lead Section Form'
+  });
   document.getElementById('lS2').classList.remove('active');
   document.getElementById('lOK').style.display='block';
   document.getElementById('lPBar').style.width='100%';
