@@ -476,7 +476,31 @@ section{padding:88px 5vw}
   .why-cards-grid{grid-template-columns:1fr}
 }
 
-/* ── ADDITIONAL MOBILE FIXES ── */
+/* ── JOURNEY SECTION MOBILE FIX ── */
+@media(max-width:768px){
+  .journey-flow{flex-direction:column;align-items:center;gap:0;width:100%}
+  .journey-flow::before{display:none}
+  .journey-step{
+    display:flex;flex-direction:column;align-items:center;
+    width:100%;padding:0 20px;position:relative;
+    text-align:center;
+  }
+  .journey-step:not(:last-child)::after{
+    content:'↓';
+    display:block;
+    font-size:22px;
+    color:#CBD5E1;
+    margin:8px 0;
+    line-height:1;
+  }
+  .journey-dot{
+    width:64px;height:64px;
+    margin:0 auto 12px;
+    font-size:26px;
+  }
+  .journey-step-title{font-size:15px;margin-bottom:6px}
+  .journey-step-desc{font-size:13px;max-width:280px;margin:0 auto}
+}
 @media(max-width:768px){
   /* Prevent iOS font zoom */
   input, select, textarea { font-size: 16px !important; }
@@ -486,10 +510,7 @@ section{padding:88px 5vw}
   /* Hero text readable */
   .hero-sub { font-size: 15px !important; color: rgba(255,255,255,.88) !important; }
   .hero-eyebrow { font-size: 12px; }
-  /* Journey flow mobile */
-  .journey-flow { flex-direction: column; gap: 20px; }
-  .journey-flow::before { display: none; }
-  .journey-dot { margin-bottom: 12px; }
+  /* Journey flow mobile - handled by dedicated block above */
   /* Career grid 2-col on mobile */
   .career-grid { grid-template-columns: repeat(2,1fr) !important; gap: 10px; }
   .cc-icon-bg { width: 50px; height: 50px; }
